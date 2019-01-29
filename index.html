@@ -16,13 +16,13 @@
       <h5>Set Range</h5>
         <figure class="inline-block">
           <p>Min Range</p>
-          <input type="text" name="minRange" id="minRange">
+          <input type="number" name="minRange" id="min-range">
         </figure>
         <figure class="inline-block">
           <p>Max Range</p>
-          <input type="text" name="maxRange" id="maxRange">
+          <input type="number" name="maxRange" id="max-range">
         </figure>
-        <button id="rangeUpdate">Update</button>
+        <button id="range-update" onclick="setRange()">Update</button>
     </article>
     <article class="guess">
       <p>The Current Range is <span class="range">1</span> to <span class="range">100</span></p>
@@ -110,5 +110,6 @@
           </div><!-- END BOTTOM LINE -->
         </div><!-- END CARD -->
       </section>
+      <script type="text/javascript" src="main.js"></script>
 </body>
 </html>
