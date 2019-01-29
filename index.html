@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Number Guesser</title>
+  <link rel="stylesheet" type="text/css" href="normalize.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,700" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1><strong>Number</strong>Guesser</h1><br>
+    <p class="decorated"><span>Ultimate Challenger Edition</span></p>
+  </header>
+  <section class="left-column">
+    <article class="set-range">
+      <h5>Set Range</h5>
+        <figure class="inline-block">
+          <p>Min Range</p>
+          <input type="text" name="minRange">
+        </figure>
+        <figure class="inline-block">
+          <p>Max Range</p>
+          <input type="text" name="maxRange">
+        </figure>
+        <button>Update</button>
+    </article>
+    <article class="guess">
+      <p>The Current Range is <span class="range">1</span> to <span class="range">100</span></p>
+      <br>
+      <h5>Challenger 1</h5>
+        <figure class="inline-block">
+          <p>Name</p>
+          <input type="text" name="name1" class="name">
+        </figure>
+        <figure class="inline-block">
+          <p>Guess</p>
+          <input type="text" name="guess1">
+        </figure>
+      <h5>Challenger 2</h5>
+        <figure class="inline-block">
+          <p>Name</p>
+          <input type="text" name="name2" class="name">
+        </figure>
+        <figure class="inline-block">
+          <p>Guess</p>
+          <input type="text" name="guess2">
+        </figure>  
+      <br> 
+      <br>
+      <div class="button-holder">
+        <button>Submit Guess</button>
+        <button>Reset Game</button>
+        <button>Clear Game</button>
+      </div>
+    </article>
+    <article class="latest-score">
+      <h5>Latest Score</h5>
+      <div class="current-guess-box">
+        <p id="challenger-name1">Challenger 1 Name</p>
+        <p>current guess</p>
+        <h1 id="current-guess1">97</h1>
+        <p id="guess-result1">that's too high</p>
+        <br>
+      </div>
+      <div id="divider">
+      </div>
+      <div class="current-guess-box">
+        <p id="challenger-name2">Challenger 2 Name</p>
+        <p>current guess</p>
+        <h1 id="current-guess2">3</h1>
+        <p id="guess-result2">that's too low</p>
+        <br>
+      </div>
+    </article>
+    <br>
+  </section>
+  <section class="right">
+        <div class="card">
+          <div class="top-line">
+            <h3 class="bold inline challenger-1">
+              Challenger 1 Name
+            </h3>
+            <p class="inline vs">
+              VS
+            </p>
+            <h3 class="bold inline challenger-2">
+              Challenger 2 Name
+            </h3>
+          </div><!-- END TOP LINE -->
+          <hr />
+          <div class="middle-line">
+            <h2 class="bold winner-name">
+              Challenger 2 Name
+            </h2>
+            <h2 class="winner">
+              Winner
+            </h2>
+          </div><!-- END MIDDLE LINE -->
+          <hr />
+          <div class="bottom-line">
+            <h3 class="inline guesses">
+              <span class="bold guesses-number">47</span>
+              Guesses
+            </h3>
+            <h3 class="inline minutes">
+              <span class="bold minutes-number">1.35</span>
+              Minutes
+            </h3>
+            <img class="delete-btn" src="images/icons8-cancel-2.svg" alt="delete card button" />
+          </div><!-- END BOTTOM LINE -->
+        </div><!-- END CARD -->
+      </section>
+</body>
+</html>

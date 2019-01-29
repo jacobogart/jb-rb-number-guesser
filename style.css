@@ -1,0 +1,266 @@
+body {
+  margin: 0px;
+  font-family: "Open Sans", sans-serif;
+}
+
+*,
+*:before,
+*:after {
+ font-family: 'Open Sans', sans-serif;
+ box-sizing: border-box;
+}
+
+header {
+ background-color: #404041;
+ text-align: center;
+}
+
+strong {
+ font-weight: 800;
+}
+
+h1 {
+ color: #DD1972;
+ font-weight: 300;
+ font-size: 4em;
+ padding-top: 25px;
+ margin: 0;
+ text-transform: uppercase;
+ line-height: .75;
+}
+
+header p {
+ margin: 0;
+ color: #f7f7f7;
+ padding-bottom: 25px;
+ text-transform: uppercase;
+ line-height: .75;
+}
+
+/* headlines with lines */
+.decorated{
+    overflow: hidden;
+    text-align: center;
+}
+.decorated > span{
+   position: relative;
+   display: inline-block;
+}
+.decorated > span:before, .decorated > span:after{
+   content: '';
+   position: absolute;
+   top: 50%;
+   border-bottom: 2px solid;
+   width: 27.5%;
+   margin: 0 20px;
+}
+.decorated > span:before{
+   right: 100%;
+}
+.decorated > span:after{
+   left: 100%;
+}
+
+.left-column {
+  width: 50%;
+  background-color: #F7F7F7;
+  margin: 0px;
+  padding-top: 5px;
+  border-right: 3px solid #6E6E6E;
+}
+
+article {
+  background-color: #FFF;
+  border: 2px solid #D0D2D3;
+  width: 95%;
+  margin: 10px auto;
+  padding: 10px
+}
+
+h5 {
+  font-size: 26px;
+  font-weight: 700;
+  margin: 5px;
+  color: #6E6E6E;
+}
+
+.range {
+font-weight: 700;
+text-decoration: underline;
+}
+
+.set-range button {
+  margin-left: 20px;
+}
+
+p {
+  margin: 5px;
+  font-size: 22px;
+}
+
+.inline-block p {
+  margin: 5px 0px;
+}
+
+form {
+  margin: 0px;
+}
+
+input {
+  font-size: 20px;
+  padding: 9px 0px;
+}
+
+.name {
+  width: 400px;
+}
+
+button {
+  background-color: #6E6E6E;
+  color: #FFF;
+  border-radius: 30px;
+  padding: 10px 30px;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 22px;
+}
+
+.inline-block {
+  display: inline-block;
+  margin: 0px 10px 10px 5px;
+}
+
+.button-holder {
+  display: flex;
+  justify-content: space-around;
+}
+
+.latest-score {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.latest-socre h5 {
+  position: absolute;
+  z-index: 0;
+}
+
+.current-guess-box {
+  text-align: center;
+  margin: 0px 50px;
+}
+
+.latest-score h1 {
+  font-weight: 700;
+  font-size: 100px;
+  padding: 10px;
+}
+
+.latest-score div {
+  display: inline-block;
+}
+
+#divider {
+  border: 1px solid #D0D2D3;
+  height: 220px;
+  position: absolute;
+  left: 50%;
+  top: 20px;
+}
+
+#challenger-name1,
+#challenger-name2 {
+  font-weight: 700;
+}
+
+#guess-result1,
+#guess-result2 {
+  font-size: 24px;
+}
+
+.bold {
+  font-weight: 800;
+}
+
+.inline {
+  display: inline;
+}
+
+/* Right Side */
+.right {
+  width: 50%;
+  float: right;
+  background-color: #dadada;
+}
+
+.float-right {
+  float: right;
+}
+
+.card {
+  background-color: #ffffff;
+  border: solid 2px #6E6E6E;
+  margin: 20px 30px;
+  padding: 15px 20px;
+  text-transform: uppercase;
+}
+
+.card hr {
+  border: 1px solid #D0D2D3;
+}
+
+.card h3, .card h2 {
+  color: #404041;
+}
+
+.card h2 {
+  font-size: 2em;
+  margin: 0;
+  text-align: center;
+}
+
+.card h3 {
+  font-size: 1em;
+  margin: 0;
+}
+
+.top-line {
+  display: flex;
+  justify-content: center;
+}
+
+.vs {
+  margin: 0 10px;
+  font-size: .7em;
+  align-self: center;
+  color: #D0D2D3;
+}
+
+.middle-line {
+  padding: 15px 0;
+}
+
+.bottom-line {
+  display: flex;
+}
+
+.bottom-line * {
+  align-self: center;
+}
+
+.bottom-line .minutes {
+  margin-left: 17%;
+}
+
+.delete-btn {
+  margin-left: auto;
+}
+
+
+
+
+
+
+
+
+
