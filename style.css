@@ -62,6 +62,7 @@ header p {
 }
 
 .left-column {
+  float: left;
   width: 50%;
   background-color: #F7F7F7;
   margin: 0px;
@@ -80,7 +81,7 @@ article {
 h5 {
   font-size: 26px;
   font-weight: 700;
-  margin: 5px;
+  margin: 5px 5px 5px 0;
   color: #6E6E6E;
 }
 
@@ -94,7 +95,7 @@ text-decoration: underline;
 }
 
 p {
-  margin: 5px;
+  margin: 5px 5px 5px 0;
   font-size: 22px;
 }
 
@@ -119,6 +120,7 @@ button {
   background-color: #6E6E6E;
   color: #FFF;
   border-radius: 30px;
+  border-style: none;
   padding: 10px 30px;
   text-transform: uppercase;
   font-weight: 700;
@@ -127,12 +129,16 @@ button {
 
 .inline-block {
   display: inline-block;
-  margin: 0px 10px 10px 5px;
+  margin: 0px 10px 10px 0px;
 }
 
 .button-holder {
   display: flex;
   justify-content: space-around;
+}
+
+#reset-btn {
+  margin: 0 3% 0 3%;
 }
 
 .latest-score {
@@ -171,6 +177,7 @@ button {
 #challenger-name1,
 #challenger-name2 {
   font-weight: 700;
+  color: #6E6E6E;
 }
 
 #guess-result1,
