@@ -137,6 +137,10 @@ button {
   justify-content: space-around;
 }
 
+#reset-btn {
+  margin: 0 3% 0 3%;
+}
+
 .latest-score {
   position: relative;
   margin-bottom: 10px;
