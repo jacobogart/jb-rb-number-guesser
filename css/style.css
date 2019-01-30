@@ -41,12 +41,17 @@ p {
   justify-content: space-between;
 }
 
+main {
+  max-height: 1000px;
+}
+
 .right {
   width: 50%;
   background-color: #dadada;
   display: flex;
   flex-direction: column-reverse;
   justify-content: flex-end;
+  overflow: scroll;
 }
 
 .left {
