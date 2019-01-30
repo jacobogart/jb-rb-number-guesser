@@ -26,10 +26,10 @@
         <h5>Set Range</h5>
         <div class="flex">
           <label>Min Range
-            <input type="text" name="minRange" id="min-range" class="numeric-only">
+            <input type="text" name="minRange" id="min-range" class="numeric-only" value="1">
           </label>
           <label>Max Range
-            <input type="text" name="maxRange" id="max-range" class="numeric-only">
+            <input type="text" name="maxRange" id="max-range" class="numeric-only" value="100">
           </label>
           <button id="range-update" onclick="setRange()">Update</button>
         </div>
@@ -41,22 +41,22 @@
         <div class="flex">
           <div class="name-container">
             <label>Name</label><br />
-            <input type="text" id="name1" class="name">
+            <input type="text" id="name1" class="name" value="">
           </div>
           <div>
             <label>Guess</label><br />
-            <input type="number" id="guess1" class="guess numeric-only">
+            <input type="number" id="guess1" class="guess numeric-only" value="">
           </div>
         </div>
         <h5 class="challenger-name2">Challenger 2</h5>
         <div class="flex">
           <div class="name-container">
             <label>Name</label><br />
-            <input type="text" id="name2" class="name">
+            <input type="text" id="name2" class="name" value="">
           </div>
           <div>
             <label>Guess</label><br />
-            <input type="number" id="guess2" class="guess numeric-only">
+            <input type="number" id="guess2" class="guess numeric-only" value="">
           </div>
         </div>  
         <br> 
@@ -91,40 +91,6 @@
       <br>
     </section>
     <section class="right">
-      <div class="winner-card">
-        <div class="flex jc-center top-line">
-          <h3 class="bold challenger-1">
-            Challenger 1 Name
-          </h3>
-          <p class="vs">
-            VS
-          </p>
-          <h3 class="bold challenger-2">
-            Challenger 2 Name
-          </h3>
-        </div><!-- END TOP LINE -->
-        <hr />
-        <div class="middle-line">
-          <h2 class="bold winner-name">
-            Challenger 2 Name
-          </h2>
-          <h2 class="winner">
-            Winner
-          </h2>
-        </div><!-- END MIDDLE LINE -->
-        <hr />
-        <div class="flex jc-space-between bottom-line">
-          <h3 class="guesses">
-            <span class="bold guesses-number">47</span>
-            Guesses
-          </h3>
-          <h3 class="minutes">
-            <span class="bold minutes-number">1.35</span>
-            Minutes
-          </h3>
-          <img class="delete-btn" src="images/icons8-cancel-2.svg" alt="delete card button" />
-        </div><!-- END BOTTOM LINE -->
-      </div><!-- END CARD -->
     </section>
   </main>
   <script type="text/javascript" src="main.js"></script>
