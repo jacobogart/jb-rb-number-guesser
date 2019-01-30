@@ -10,68 +10,11 @@ body {
  box-sizing: border-box;
 }
 
-header {
- background-color: #404041;
- text-align: center;
-}
-
 strong {
  font-weight: 800;
 }
 
-h1 {
- color: #DD1972;
- font-weight: 300;
- font-size: 4em;
- text-align: left;
- padding-top: 25px;
- margin: 0;
- text-transform: uppercase;
- line-height: .75;
- position: relative;
- right: 4px;
-}
-
-header p {
- margin: 0;
- color: #f7f7f7;
- padding-bottom: 25px;
- text-transform: uppercase;
- line-height: .75;
-}
-
-header div {
-  display: block;
-  margin: auto;
-  width: 550px;
-}
-
-/* headlines with lines */
-.decorated{
-    overflow: hidden;
-}
-
-.decorated span{
-   position: relative;
-   display: inline;
-}
-
-.decorated span:before, .decorated span:after{
-   content: '';
-   position: absolute;
-   top: 50%;
-   border-bottom: 2px solid #f7f7f7;
-   width: 100%;
-   margin: 0 20px;
-}
-.decorated span:before{
-   right: 100%;
-}
-.decorated span:after{
-   left: 100%;
-}
-
-main {
+.flex {
   display: flex;
 }
 
@@ -105,6 +48,7 @@ text-decoration: underline;
 
 .set-range button {
   margin-left: 20px;
+  align-self: flex-end;
 }
 
 p {
@@ -146,7 +90,6 @@ button {
 }
 
 .button-holder {
-  display: flex;
   justify-content: space-around;
 }
 
@@ -200,10 +143,6 @@ button {
 
 .bold {
   font-weight: 800;
-}
-
-.inline {
-  display: inline;
 }
 
 /* Right Side */

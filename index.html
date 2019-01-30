@@ -4,6 +4,7 @@
   <title>Number Guesser</title>
   <link rel="stylesheet" type="text/css" href="normalize.css">
   <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="header.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,700" rel="stylesheet">
 </head>
 <body>
@@ -15,19 +16,19 @@
       </p>
     </div>
   </header>
-  <main>
+  <main class="flex">
     <section class="left-column">
       <article class="set-range">
         <h5>Set Range</h5>
-        <figure class="inline-block">
-          <p>Min Range</p>
-          <input type="number" name="minRange" id="min-range">
-        </figure>
-        <figure class="inline-block">
-          <p>Max Range</p>
-          <input type="number" name="maxRange" id="max-range">
-        </figure>
-        <button id="range-update" onclick="setRange()">Update</button>
+        <div class="flex">
+          <label>Min Range
+            <input type="number" name="minRange" id="min-range">
+          </label>
+          <label>Max Range
+            <input type="number" name="maxRange" id="max-range">
+          </label>
+          <button id="range-update" onclick="setRange()">Update</button>
+        </div>
       </article>
       <article class="guess">
         <p>The Current Range is <span class="range" id="display-min">1</span> to <span class="range" id="display-max">100</span></p>
@@ -52,7 +53,7 @@
         </figure>  
         <br> 
         <br>
-        <div class="button-holder">
+        <div class="button-holder flex">
           <button id="submit-btn">Submit Guess</button>
           <button id="reset-btn">Reset Game</button>
           <button id="clear-btn">Clear Game</button>
@@ -82,13 +83,13 @@
     <section class="right">
       <div class="card">
         <div class="top-line">
-          <h3 class="bold inline challenger-1">
+          <h3 class="bold challenger-1">
             Challenger 1 Name
           </h3>
-          <p class="inline vs">
+          <p class="vs">
             VS
           </p>
-          <h3 class="bold inline challenger-2">
+          <h3 class="bold challenger-2">
             Challenger 2 Name
           </h3>
         </div><!-- END TOP LINE -->
@@ -103,11 +104,11 @@
         </div><!-- END MIDDLE LINE -->
         <hr />
         <div class="bottom-line">
-          <h3 class="inline guesses">
+          <h3 class="guesses">
             <span class="bold guesses-number">47</span>
             Guesses
           </h3>
-          <h3 class="inline minutes">
+          <h3 class="minutes">
             <span class="bold minutes-number">1.35</span>
             Minutes
           </h3>
