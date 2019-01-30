@@ -26,3 +26,21 @@ function makeGuess() {
     challengerNameTwo[i].innerText = name2;
   }
 }
+
+function isNumberKey(evt){
+  var char = evt.key;
+
+  if (char === 'Backspace' || char === 'Tab' || parseInt(char)) {
+    console.log('You can use that key!');
+    return true;
+  }
+  evt.preventDefault();
+  console.log('You can\'t use that key!');
+  return false;
+}
+
+var numberOnlyFields = document.querySelectorAll('.numeric-only');
+
+for (var i = 0; i < numberOnlyFields.length; i++) {
+  numberOnlyFields[i].addEventListener('keydown', isNumberKey);
+}

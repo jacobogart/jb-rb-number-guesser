@@ -2,55 +2,63 @@
 <html>
 <head>
   <title>Number Guesser</title>
-  <link rel="stylesheet" type="text/css" href="normalize.css">
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <link rel="stylesheet" type="text/css" href="header.css">
+  <link rel="stylesheet" type="text/css" href="css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/header.css">
+  <link rel="stylesheet" type="text/css" href="css/range-card.css">
+  <link rel="stylesheet" type="text/css" href="css/guess-card.css">
+  <link rel="stylesheet" type="text/css" href="css/score-card.css">
+  <link rel="stylesheet" type="text/css" href="css/winner-card.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,700" rel="stylesheet">
 </head>
 <body>
   <header>
     <div>
-      <h1><strong>Number</strong>Guesser</h1><br>
+      <h1><span class="bold">Number</span>Guesser</h1><br>
       <p class="decorated">
         <span>Ultimate Challenger Edition</span>
       </p>
     </div>
   </header>
   <main class="flex">
-    <section class="left-column">
-      <article class="set-range">
+    <section class="left">
+      <article id="range-card" class="set-range">
         <h5>Set Range</h5>
         <div class="flex">
           <label>Min Range
-            <input type="number" name="minRange" id="min-range">
+            <input type="text" name="minRange" id="min-range" class="numeric-only">
           </label>
           <label>Max Range
-            <input type="number" name="maxRange" id="max-range">
+            <input type="text" name="maxRange" id="max-range" class="numeric-only">
           </label>
           <button id="range-update" onclick="setRange()">Update</button>
         </div>
       </article>
-      <article class="guess">
+      <article id="guess-card">
         <p>The Current Range is <span class="range" id="display-min">1</span> to <span class="range" id="display-max">100</span></p>
         <br>
         <h5 class="challenger-name1">Challenger 1</h5>
-        <figure class="inline-block">
-          <p>Name</p>
-          <input type="text" id="name1" class="name">
-        </figure>
-        <figure class="inline-block">
-          <p>Guess</p>
-          <input type="text" class="guess1">
-        </figure>
+        <div class="flex">
+          <div class="name-container">
+            <label>Name</label><br />
+            <input type="text" id="name1" class="name">
+          </div>
+          <div>
+            <label>Guess</label><br />
+            <input type="number" id="guess1" class="guess numeric-only">
+          </div>
+        </div>
         <h5 class="challenger-name2">Challenger 2</h5>
-        <figure class="inline-block">
-          <p>Name</p>
-          <input type="text" id="name2" class="name">
-        </figure>
-        <figure class="inline-block">
-          <p>Guess</p>
-          <input type="text" class="guess2">
-        </figure>  
+        <div class="flex">
+          <div class="name-container">
+            <label>Name</label><br />
+            <input type="text" id="name2" class="name">
+          </div>
+          <div>
+            <label>Guess</label><br />
+            <input type="number" id="guess2" class="guess numeric-only">
+          </div>
+        </div>  
         <br> 
         <br>
         <div class="button-holder flex">
@@ -59,30 +67,32 @@
           <button id="clear-btn">Clear Game</button>
         </div>
       </article>
-      <article class="latest-score">
+      <article id="score-card" class="latest-score">
         <h5>Latest Score</h5>
-        <div class="current-guess-box">
-          <p class="challenger-name1">Challenger 1 Name</p>
-          <p>current guess</p>
-          <h1 id="current-guess1">97</h1>
-          <p id="guess-result1">that's too high</p>
-          <br>
-        </div>
-        <div id="divider">
-        </div>
-        <div class="current-guess-box">
-          <p class="challenger-name2">Challenger 2 Name</p>
-          <p>current guess</p>
-          <h1 id="current-guess2">3</h1>
-          <p id="guess-result2">that's too low</p>
-          <br>
+        <div class="flex jc-space-around">
+          <div class="current-guess-box">
+            <p class="challenger-name1">Challenger 1 Name</p>
+            <p>current guess</p>
+            <h1 id="current-guess1">97</h1>
+            <p id="guess-result1">that's too high</p>
+            <br>
+          </div>
+          <div id="divider">
+          </div>
+          <div class="current-guess-box">
+            <p class="challenger-name2">Challenger 2 Name</p>
+            <p>current guess</p>
+            <h1 id="current-guess2">3</h1>
+            <p id="guess-result2">that's too low</p>
+            <br>
+          </div>
         </div>
       </article>
       <br>
     </section>
     <section class="right">
-      <div class="card">
-        <div class="top-line">
+      <div class="winner-card">
+        <div class="flex jc-center top-line">
           <h3 class="bold challenger-1">
             Challenger 1 Name
           </h3>
@@ -103,7 +113,7 @@
           </h2>
         </div><!-- END MIDDLE LINE -->
         <hr />
-        <div class="bottom-line">
+        <div class="flex jc-space-between bottom-line">
           <h3 class="guesses">
             <span class="bold guesses-number">47</span>
             Guesses
