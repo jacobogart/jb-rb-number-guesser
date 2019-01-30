@@ -71,8 +71,11 @@ header div {
    left: 100%;
 }
 
+main {
+  display: flex;
+}
+
 .left-column {
-  float: left;
   width: 50%;
   background-color: #F7F7F7;
   margin: 0px;
@@ -206,9 +209,7 @@ button {
 /* Right Side */
 .right {
   width: 50%;
-  float: right;
   background-color: #dadada;
-  height: 892px;
 }
 
 .float-right {
