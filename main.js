@@ -1,4 +1,5 @@
 var randomNumber = generateRandomNumber();
+var name1, name2, guess1, guess2;
 
 function setRange() {
   var minRange = parseInt(document.getElementById('min-range').value);
@@ -15,8 +16,8 @@ function generateRandomNumber(min = 1, max = 100) {
 document.getElementById('submit-btn').addEventListener('click', makeGuess);
 
 function updateName() {
-  var name1 = document.querySelector('#name1').value;
-  var name2 = document.querySelector('#name2').value;
+  name1 = document.querySelector('#name1').value;
+  name2 = document.querySelector('#name2').value;
   var challengerNameOne = document.querySelectorAll('.challenger-name1');
   for (var i = 0; i < challengerNameOne.length; i++) {
     challengerNameOne[i].innerText = name1;
@@ -28,18 +29,32 @@ function updateName() {
 }
 
 function updateGuess() {
-  var guess1 = document.querySelector('#guess1').value;
-  var guess2 = document.querySelector('#guess2').value;
+  guess1 = document.querySelector('#guess1').value;
+  guess2 = document.querySelector('#guess2').value;
   var challengerGuessOne = document.querySelector('#current-guess1');
     challengerGuessOne.innerText = guess1;
   var challengerGuessTwo = document.querySelector('#current-guess2');
     challengerGuessTwo.innerText = guess2;  
 }
 
+function guessResultOne() {
+  var guessResultOne = document.querySelector('#guess-result1');
+
+  if (guess1 < randomNumber) {
+    guessResultOne.innerText = 'that\'s too low';
+  } else if (guess1 > randomNumber) {
+    guessResultOne.innerText = 'that\'s too high';
+  } else if (guess1 == randomNumber) {
+    correctGuess();
+  }
+}
+
 
 function makeGuess() {
   updateName();
   updateGuess();
+  guessResultOne();
+  console.log(randomNumber)
 }
 
 function isNumberKey(evt){
