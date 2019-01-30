@@ -14,7 +14,7 @@ function generateRandomNumber(min = 1, max = 100) {
 
 document.getElementById('submit-btn').addEventListener('click', makeGuess);
 
-function makeGuess() {
+function updateName() {
   var name1 = document.querySelector('#name1').value;
   var name2 = document.querySelector('#name2').value;
   var challengerNameOne = document.querySelectorAll('.challenger-name1');
@@ -25,6 +25,21 @@ function makeGuess() {
   for (var i = 0; i < challengerNameTwo.length; i++) {
     challengerNameTwo[i].innerText = name2;
   }
+}
+
+function updateGuess() {
+  var guess1 = document.querySelector('#guess1').value;
+  var guess2 = document.querySelector('#guess2').value;
+  var challengerGuessOne = document.querySelector('#current-guess1');
+    challengerGuessOne.innerText = guess1;
+  var challengerGuessTwo = document.querySelector('#current-guess2');
+    challengerGuessTwo.innerText = guess2;  
+}
+
+
+function makeGuess() {
+  updateName();
+  updateGuess();
 }
 
 function isNumberKey(evt){
@@ -44,3 +59,4 @@ var numberOnlyFields = document.querySelectorAll('.numeric-only');
 for (var i = 0; i < numberOnlyFields.length; i++) {
   numberOnlyFields[i].addEventListener('keydown', isNumberKey);
 }
+
