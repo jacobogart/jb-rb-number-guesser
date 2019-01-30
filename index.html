@@ -9,7 +9,9 @@
   <link rel="stylesheet" type="text/css" href="css/guess-card.css">
   <link rel="stylesheet" type="text/css" href="css/score-card.css">
   <link rel="stylesheet" type="text/css" href="css/winner-card.css">
+  <link rel="stylesheet" type="text/css" href="css/media-queries.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,700" rel="stylesheet">
+
 </head>
 <body>
   <header>
@@ -25,12 +27,14 @@
       <article id="range-card" class="set-range">
         <h5>Set Range</h5>
         <div class="flex">
-          <label>Min Range
-            <input type="text" name="minRange" id="min-range" class="numeric-only" value="1">
-          </label>
-          <label>Max Range
-            <input type="text" name="maxRange" id="max-range" class="numeric-only" value="100">
-          </label>
+          <div>
+            <label for="min-range">Min Range</label>
+            <input type="text" name="minRange" id="min-range" class="numeric-only">
+          </div>
+          <div>
+            <label for="max-range">Max Range</label>
+            <input type="text" name="maxRange" id="max-range" class="numeric-only">
+          </div>
           <button id="range-update" onclick="setRange()">Update</button>
         </div>
       </article>
@@ -40,23 +44,23 @@
         <h5 class="challenger-name1">Challenger 1</h5>
         <div class="flex">
           <div class="name-container">
-            <label>Name</label><br />
-            <input type="text" id="name1" class="name" value="">
+            <label for="name1">Name</label><br />
+            <input type="text" id="name1" class="name">
           </div>
           <div>
-            <label>Guess</label><br />
-            <input type="number" id="guess1" class="guess numeric-only" value="">
+            <label for="guess1">Guess</label><br />
+            <input type="number" id="guess1" class="guess numeric-only">
           </div>
         </div>
         <h5 class="challenger-name2">Challenger 2</h5>
         <div class="flex">
           <div class="name-container">
-            <label>Name</label><br />
-            <input type="text" id="name2" class="name" value="">
+            <label for="name2">Name</label><br />
+            <input type="text" id="name2" class="name">
           </div>
           <div>
-            <label>Guess</label><br />
-            <input type="number" id="guess2" class="guess numeric-only" value="">
+            <label for="guess2">Guess</label><br />
+            <input type="number" id="guess2" class="guess numeric-only">
           </div>
         </div>  
         <br> 
