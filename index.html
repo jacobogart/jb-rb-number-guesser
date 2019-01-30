@@ -20,34 +20,34 @@
       <h5>Set Range</h5>
         <figure class="inline-block">
           <p>Min Range</p>
-          <input type="text" name="minRange">
+          <input type="number" name="minRange" id="min-range">
         </figure>
         <figure class="inline-block">
           <p>Max Range</p>
-          <input type="text" name="maxRange">
+          <input type="number" name="maxRange" id="max-range">
         </figure>
-        <button>Update</button>
+        <button id="range-update" onclick="setRange()">Update</button>
     </article>
     <article class="guess">
-      <p>The Current Range is <span class="range">1</span> to <span class="range">100</span></p>
+      <p>The Current Range is <span class="range" id="display-min">1</span> to <span class="range" id="display-max">100</span></p>
       <br>
-      <h5>Challenger 1</h5>
+      <h5 class="challenger-name1">Challenger 1</h5>
         <figure class="inline-block">
           <p>Name</p>
-          <input type="text" name="name1" class="name">
+          <input type="text" id="name1" class="name">
         </figure>
         <figure class="inline-block">
           <p>Guess</p>
-          <input type="text" name="guess1">
+          <input type="text" class="guess1">
         </figure>
-      <h5>Challenger 2</h5>
+      <h5 class="challenger-name2">Challenger 2</h5>
         <figure class="inline-block">
           <p>Name</p>
-          <input type="text" name="name2" class="name">
+          <input type="text" id="name2" class="name">
         </figure>
         <figure class="inline-block">
           <p>Guess</p>
-          <input type="text" name="guess2">
+          <input type="text" class="guess2">
         </figure>  
       <br> 
       <br>
@@ -60,7 +60,7 @@
     <article class="latest-score">
       <h5>Latest Score</h5>
       <div class="current-guess-box">
-        <p id="challenger-name1">Challenger 1 Name</p>
+        <p class="challenger-name1">Challenger 1 Name</p>
         <p>current guess</p>
         <h1 id="current-guess1">97</h1>
         <p id="guess-result1">that's too high</p>
@@ -69,7 +69,7 @@
       <div id="divider">
       </div>
       <div class="current-guess-box">
-        <p id="challenger-name2">Challenger 2 Name</p>
+        <p class="challenger-name2">Challenger 2 Name</p>
         <p>current guess</p>
         <h1 id="current-guess2">3</h1>
         <p id="guess-result2">that's too low</p>
@@ -114,5 +114,6 @@
           </div><!-- END BOTTOM LINE -->
         </div><!-- END CARD -->
       </section>
+      <script type="text/javascript" src="main.js"></script>
 </body>
 </html>
