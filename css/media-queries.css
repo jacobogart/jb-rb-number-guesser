@@ -1,0 +1,47 @@
+@media screen and (max-width: 600px) {
+  main {
+    flex-direction: column;
+    max-height: none;
+  }
+
+  .left {
+    width: 100%;
+  }
+
+  .right {
+    width: 100%;
+  }
+
+  #range-card div.flex {
+    flex-direction: column;
+  }
+
+  input {
+    width: 100%;
+  }
+
+  button {
+    margin: 25px 0 0 0;
+  }
+
+  #reset-btn {margin: 25px 0 0 0 !important;}
+
+  input.name {
+    width: 100%;
+  }
+
+  #range-card button {
+    align-self: flex-start;
+    margin-left: 0;
+  }
+
+  .flex {
+    flex-direction: column;
+  }
+
+  .top-line {text-align: center;}
+
+  .bottom-line {
+    flex-direction: row;
+  }
+}
