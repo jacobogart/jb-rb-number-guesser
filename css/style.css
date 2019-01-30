@@ -72,8 +72,7 @@ input {
   margin-top: 5px;
 }
 
-button,
-#reset-btn {
+button {
   background-color: #6E6E6E;
   color: #FFF;
   border-radius: 30px;

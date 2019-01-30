@@ -20,6 +20,9 @@ document.getElementById('submit-btn').addEventListener('click', makeGuess);
 
 document.getElementById('reset-btn').addEventListener('click', resetGame);
 
+document.getElementById('clear-btn').addEventListener('click', clearGame);
+
+
 function updateName() {
   name1 = document.querySelector('#name1').value;
   name2 = document.querySelector('#name2').value;
@@ -163,6 +166,11 @@ function resetGame() {
   setRange();
   document.querySelector('#name1').value = ' ';
   document.querySelector('#name2').value = ' ';
+  document.querySelector('#guess1').value = ' ';
+  document.querySelector('#guess2').value = ' ';
+}
+
+function clearGame() {
   document.querySelector('#guess1').value = ' ';
   document.querySelector('#guess2').value = ' ';
 }
