@@ -2,7 +2,7 @@ var randomNumber = generateRandomNumber();
 var name1, name2, guess1, guess2;
 var challengerNameOne = document.querySelectorAll('.challenger-name1');
 var challengerNameTwo = document.querySelectorAll('.challenger-name2');
-
+buttonDisable();
 
 function setRange() {
   var minRange = parseInt(document.getElementById('min-range').value);
@@ -32,6 +32,7 @@ function updateName() {
   for (var i = 0; i < challengerNameTwo.length; i++) {
     challengerNameTwo[i].innerText = name2;
   }
+  buttonDisable()
 }
 
 function updateGuess() {
@@ -40,7 +41,8 @@ function updateGuess() {
   var challengerGuessOne = document.querySelector('#current-guess1');
     challengerGuessOne.innerText = guess1;
   var challengerGuessTwo = document.querySelector('#current-guess2');
-    challengerGuessTwo.innerText = guess2;  
+    challengerGuessTwo.innerText = guess2; 
+  buttonDisable() 
 }
 
 function guessResultOne() {
@@ -164,15 +166,30 @@ function resetGame() {
     challengerNameTwo[i].innerText = 'Challenger 2';
   }
   setRange();
-  document.querySelector('#name1').value = ' ';
-  document.querySelector('#name2').value = ' ';
-  document.querySelector('#guess1').value = ' ';
-  document.querySelector('#guess2').value = ' ';
+  document.querySelector('#name1').value = '';
+  document.querySelector('#name2').value = '';
+  document.querySelector('#guess1').value = '';
+  document.querySelector('#guess2').value = '';
 }
 
 function clearGame() {
-  document.querySelector('#guess1').value = ' ';
-  document.querySelector('#guess2').value = ' ';
+  document.querySelector('#guess1').value = '';
+  document.querySelector('#guess2').value = '';
+}
+
+function buttonDisable() {
+  console.log('test');
+  if (document.querySelector('#name1').value === '') {
+    document.getElementById("reset-btn").disabled = true;
+  } else {
+    document.getElementById("reset-btn").disabled = false;
+  }
+
+  if (document.querySelector('#guess1').value === '') {
+    document.getElementById("clear-btn").disabled = true;
+  } else {
+    document.getElementById("clear-btn").disabled = false;
+  }
 }
 
 function isNumberKey(evt){
