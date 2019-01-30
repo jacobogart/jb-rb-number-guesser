@@ -174,8 +174,8 @@ button {
   top: 20px;
 }
 
-#challenger-name1,
-#challenger-name2 {
+.challenger-name1,
+.challenger-name2 {
   font-weight: 700;
   color: #6E6E6E;
 }
