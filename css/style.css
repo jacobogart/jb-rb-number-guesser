@@ -41,9 +41,14 @@ p {
   justify-content: space-between;
 }
 
+main {
+  max-height: 1000px;
+}
+
 .right {
   width: 50%;
   background-color: #dadada;
+  overflow: scroll;
 }
 
 .left {
