@@ -25,12 +25,14 @@
       <article id="range-card" class="set-range">
         <h5>Set Range</h5>
         <div class="flex">
-          <label>Min Range
+          <div>
+            <label for="min-range">Min Range</label>
             <input type="text" name="minRange" id="min-range" class="numeric-only">
-          </label>
-          <label>Max Range
+          </div>
+          <div>
+            <label for="max-range">Max Range</label>
             <input type="text" name="maxRange" id="max-range" class="numeric-only">
-          </label>
+          </div>
           <button id="range-update" onclick="setRange()">Update</button>
         </div>
       </article>
@@ -40,22 +42,22 @@
         <h5 class="challenger-name1">Challenger 1</h5>
         <div class="flex">
           <div class="name-container">
-            <label>Name</label><br />
+            <label for="name1">Name</label><br />
             <input type="text" id="name1" class="name">
           </div>
           <div>
-            <label>Guess</label><br />
+            <label for="guess1">Guess</label><br />
             <input type="number" id="guess1" class="guess numeric-only">
           </div>
         </div>
         <h5 class="challenger-name2">Challenger 2</h5>
         <div class="flex">
           <div class="name-container">
-            <label>Name</label><br />
+            <label for="name2">Name</label><br />
             <input type="text" id="name2" class="name">
           </div>
           <div>
-            <label>Guess</label><br />
+            <label for="guess2">Guess</label><br />
             <input type="number" id="guess2" class="guess numeric-only">
           </div>
         </div>  
