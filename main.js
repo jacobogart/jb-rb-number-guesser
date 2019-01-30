@@ -30,7 +30,9 @@ function makeGuess() {
 function isNumberKey(evt){
   var char = evt.key;
 
-  if (char === 'Backspace' || char === 'Tab' || parseInt(char)) {
+  console.log(parseInt(char));
+
+  if (char === 'Backspace' || char === 'Tab' || parseInt(char) || parseInt(char) === 0) {
     console.log('You can use that key!');
     return true;
   }
