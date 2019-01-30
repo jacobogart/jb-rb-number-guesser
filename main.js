@@ -1,5 +1,8 @@
 var randomNumber = generateRandomNumber();
 var name1, name2, guess1, guess2;
+var challengerNameOne = document.querySelectorAll('.challenger-name1');
+var challengerNameTwo = document.querySelectorAll('.challenger-name2');
+
 
 function setRange() {
   var minRange = parseInt(document.getElementById('min-range').value);
@@ -15,14 +18,17 @@ function generateRandomNumber(min = 1, max = 100) {
 
 document.getElementById('submit-btn').addEventListener('click', makeGuess);
 
+document.getElementById('reset-btn').addEventListener('click', resetGame);
+
+document.getElementById('clear-btn').addEventListener('click', clearGame);
+
+
 function updateName() {
   name1 = document.querySelector('#name1').value;
   name2 = document.querySelector('#name2').value;
-  var challengerNameOne = document.querySelectorAll('.challenger-name1');
   for (var i = 0; i < challengerNameOne.length; i++) {
     challengerNameOne[i].innerText = name1;
   }
-  var challengerNameTwo = document.querySelectorAll('.challenger-name2');
   for (var i = 0; i < challengerNameTwo.length; i++) {
     challengerNameTwo[i].innerText = name2;
   }
@@ -141,7 +147,6 @@ function correctGuessTwo() {
       </div>`
 
   right.insertBefore(winnerCardTwo, right.childNodes[0])
-
 }
 
 function makeGuess() {
@@ -149,21 +154,35 @@ function makeGuess() {
   updateGuess();
   guessResultOne();
   guessResultTwo();
-  correctGuessOne();
-  // console.log(randomNumber);
+}
+
+function resetGame() {
+  for (var i = 0; i < challengerNameOne.length; i++) {
+    challengerNameOne[i].innerText = 'Challenger 1';
+  }
+  for (var i = 0; i < challengerNameTwo.length; i++) {
+    challengerNameTwo[i].innerText = 'Challenger 2';
+  }
+  setRange();
+  document.querySelector('#name1').value = ' ';
+  document.querySelector('#name2').value = ' ';
+  document.querySelector('#guess1').value = ' ';
+  document.querySelector('#guess2').value = ' ';
+}
+
+function clearGame() {
+  document.querySelector('#guess1').value = ' ';
+  document.querySelector('#guess2').value = ' ';
 }
 
 function isNumberKey(evt){
   var char = evt.key;
 
-  console.log(parseInt(char));
 
   if (char === 'Backspace' || char === 'Tab' || parseInt(char) || parseInt(char) === 0) {
-    console.log('You can use that key!');
     return true;
   }
   evt.preventDefault();
-  console.log('You can\'t use that key!');
   return false;
 }
 
