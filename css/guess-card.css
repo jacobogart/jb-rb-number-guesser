@@ -1,0 +1,15 @@
+.name {
+  width: 90%;
+}
+
+.name-container {
+  flex-grow: 2;
+}
+
+.button-holder {
+  justify-content: space-around;
+}
+
+#reset-btn {
+  margin: 0 3% 0 3%;
+}

@@ -1,0 +1,9 @@
+.range {
+font-weight: 700;
+text-decoration: underline;
+}
+
+.set-range button {
+  margin-left: 20px;
+  align-self: flex-end;
+}

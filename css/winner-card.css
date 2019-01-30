@@ -1,0 +1,40 @@
+.winner-card {
+  background-color: #ffffff;
+  border: solid 2px #6E6E6E;
+  margin: 20px 20px;
+  padding: 15px 20px;
+  text-transform: uppercase;
+}
+
+.winner-card hr {
+  border: 1px solid #D0D2D3;
+}
+
+.winner-card h3, .winner-card h2 {
+  color: #404041;
+}
+
+.winner-card h2 {
+  font-size: 2.5em;
+  margin: 5px;
+  text-align: center;
+}
+
+.winner-card h3 {
+    margin: 10px 0;
+}
+
+.vs {
+  margin: 0 10px;
+  font-size: .7em;
+  align-self: center;
+  color: #D0D2D3;
+}
+
+.middle-line {
+  padding: 15px 0;
+}
+
+.bottom-line h3 {
+  align-self: center;
+}
