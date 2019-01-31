@@ -3,26 +3,40 @@
 *:after {
  font-family: 'Open Sans', sans-serif;
  box-sizing: border-box;
+ font-weight: 300;
 }
 
-.bold, button {
+.bold, h5, button {
  font-weight: 700;
 }
 
-h1, h2, h3 {
-  font-weight: 300;
+h1 {
+ font-size: 4em;
+ text-align: center;
+ padding-top: 25px;
+ margin: 0;
+ text-transform: uppercase;
+ line-height: .75;
+ position: relative;
+ right: 4px;
 }
 
 h5 {
   font-size: 26px;
-  font-weight: 700;
   margin: 5px 5px 5px 0;
-  color: #6E6E6E;
 }
 
 p {
   margin: 5px 5px 5px 0;
   font-size: 22px;
+}
+
+.red-violet, h1 {
+  color: #DD1972;
+}
+
+.dark-grey, h5 {
+  color: #6E6E6E;;
 }
 
 .flex {
