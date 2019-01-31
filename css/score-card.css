@@ -1,14 +1,4 @@
-#score-card {
-  position: relative;
-  margin-bottom: 10px;
-}
-
-.current-guess-box {
-  text-align: center;
-}
-
 #score-card h1 {
-  font-weight: 700;
   font-size: 100px;
   padding: 10px;
 }
@@ -19,7 +9,6 @@
 
 .challenger-name1,
 .challenger-name2 {
-  font-weight: 700;
   color: #6E6E6E;
 }
 

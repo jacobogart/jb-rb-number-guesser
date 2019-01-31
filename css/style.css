@@ -41,6 +41,10 @@ p {
   justify-content: space-between;
 }
 
+.text-center {
+  text-align: center;
+}
+
 main {
   max-height: 1000px;
 }
