@@ -58,7 +58,6 @@ function updateGuess(evt) {
   var challengerGuessTwo = document.querySelector('#current-guess2');
     challengerGuessTwo.innerText = guess2; 
   buttonDisable();
-  console.log(evt);
   guessWithinRange(evt); 
 }
 
@@ -210,6 +209,25 @@ function buttonDisable() {
 }
 
 // ERROR FUNCTIONS
+function addErrorClass(element) {
+  var icon = `<img src="images/error-icon.svg" alt="error icon" width="20px"/>`
+  element.classList.add('error');
+  element.nextElementSibling.classList.remove('hidden');
+  console.log(arguments.callee.caller.name);
+  if (arguments.callee.caller.name == 'isNumberKey') {
+    console.log(element.nextElementSibling.innerText);
+    element.nextElementSibling.innerHTML = icon + 'Enter a name';
+  } else if (arguments.callee.caller.name == 'guessWithinRange') {
+    element.nextElementSibling.innerHTML= icon + 'Guess out of range';
+  }
+ }  
+
+
+function removeErrorClass(element) {
+  element.classList.remove('error');
+  element.nextElementSibling.classList.add('hidden');
+}
+
 function isNumberKey(evt){
   var char = evt.key;
   if (char === 'Backspace' || char === 'Tab' || parseInt(char) || parseInt(char) === 0) {
@@ -217,31 +235,16 @@ function isNumberKey(evt){
     return true;
   } else {
     evt.preventDefault();
-    console.log(evt);
     addErrorClass(evt.target);
     return false;
   }
 }
 
-function addErrorClass(element) {
-  element.classList.add('error');
-  element.classList.remove('hidden');
-}
-
-function removeErrorClass(element) {
-  element.classList.remove('error');
-  element.classList.add('hidden');
-}
-
-function guessWithinRange(evt, guess) {
-  console.log('test');
-  console.log(evt);
+function guessWithinRange(evt) {
   if (guess1 < minRange || guess1 > maxRange) {
-    console.log(evt.path[2].querySelector('#guess1'));
     addErrorClass(evt.path[2].querySelector('#guess1'));  
   }
   if (guess2 < minRange || guess2 > maxRange) {
-    console.log(evt.path[2].querySelector('#guess2'));
     addErrorClass(evt.path[2].querySelector('#guess2'));  
   }
 }
