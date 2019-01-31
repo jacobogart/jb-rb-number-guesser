@@ -1,9 +1,22 @@
+// GLOBAL VARIABLES
 var randomNumber = generateRandomNumber();
 var name1, name2, guess1, guess2;
 var challengerNameOne = document.querySelectorAll('.challenger-name1');
 var challengerNameTwo = document.querySelectorAll('.challenger-name2');
-buttonDisable();
+var numberOnlyFields = document.querySelectorAll('.numeric-only');
 
+// ON LOAD FUNCTIONS
+buttonDisable();
+for (var i = 0; i < numberOnlyFields.length; i++) {
+  numberOnlyFields[i].addEventListener('keydown', isNumberKey);
+}
+
+// EVENT LISTENERS
+document.getElementById('submit-btn').addEventListener('click', makeGuess);
+document.getElementById('reset-btn').addEventListener('click', resetGame);
+document.getElementById('clear-btn').addEventListener('click', clearGame);
+
+// SET RANGE
 function setRange() {
   var minRange = parseInt(document.getElementById('min-range').value);
   var maxRange = parseInt(document.getElementById('max-range').value);
@@ -16,13 +29,7 @@ function generateRandomNumber(min = 1, max = 100) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-document.getElementById('submit-btn').addEventListener('click', makeGuess);
-
-document.getElementById('reset-btn').addEventListener('click', resetGame);
-
-document.getElementById('clear-btn').addEventListener('click', clearGame);
-
-
+// GAME SETUP
 function updateName() {
   name1 = document.querySelector('#name1').value;
   name2 = document.querySelector('#name2').value;
@@ -45,9 +52,16 @@ function updateGuess() {
   buttonDisable() 
 }
 
+// GUESS RESULTS
+function makeGuess() {
+  updateName();
+  updateGuess();
+  guessResultOne();
+  guessResultTwo();
+}
+
 function guessResultOne() {
   var guessResultOne = document.querySelector('#guess-result1');
-
   if (guess1 < randomNumber) {
     guessResultOne.innerText = 'that\'s too low';
   } else if (guess1 > randomNumber) {
@@ -60,7 +74,6 @@ function guessResultOne() {
 
 function guessResultTwo() {
   var guessResultTwo = document.querySelector('#guess-result2');
-
   if (guess2 < randomNumber) {
     guessResultTwo.innerText = 'that\'s too low';
   } else if (guess2 > randomNumber) {
@@ -151,13 +164,7 @@ function correctGuessTwo() {
   right.insertBefore(winnerCardTwo, right.childNodes[0])
 }
 
-function makeGuess() {
-  updateName();
-  updateGuess();
-  guessResultOne();
-  guessResultTwo();
-}
-
+// GAME RESETS
 function resetGame() {
   for (var i = 0; i < challengerNameOne.length; i++) {
     challengerNameOne[i].innerText = 'Challenger 1';
@@ -192,20 +199,19 @@ function buttonDisable() {
   }
 }
 
+// ERROR FUNCTIONS
 function isNumberKey(evt){
   var char = evt.key;
-
-
   if (char === 'Backspace' || char === 'Tab' || parseInt(char) || parseInt(char) === 0) {
     return true;
+  } else {
+    evt.preventDefault();
+    addErrorClass();
+    return false;
   }
-  evt.preventDefault();
-  return false;
 }
 
-var numberOnlyFields = document.querySelectorAll('.numeric-only');
-
-for (var i = 0; i < numberOnlyFields.length; i++) {
-  numberOnlyFields[i].addEventListener('keydown', isNumberKey);
+function addErrorClass() {
+  
 }
 
