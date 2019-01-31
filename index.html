@@ -11,10 +11,9 @@
   <link rel="stylesheet" type="text/css" href="css/winner-card.css">
   <link rel="stylesheet" type="text/css" href="css/media-queries.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,700" rel="stylesheet">
-
 </head>
 <body>
-  <header>
+  <header class="flex jc-center">
     <div>
       <h1><span class="bold">Number</span>Guesser</h1><br>
       <p class="decorated">
@@ -25,42 +24,48 @@
   <main class="flex">
     <section class="left">
       <article id="range-card" class="set-range">
-        <h5>Set Range</h5>
+        <h5 class="dark-grey">Set Range</h5>
         <div class="flex">
           <div>
             <label for="min-range">Min Range</label>
-            <input type="text" name="minRange" id="min-range" class="numeric-only">
+            <input type="text" name="minRange" id="min-range" class="numeric-only error">
+            <p class="error-message hidden"><img src="images/error-icon.svg" alt="error icon" width="20px"/>Enter a number</p>
           </div>
           <div>
             <label for="max-range">Max Range</label>
             <input type="text" name="maxRange" id="max-range" class="numeric-only">
+            <p class="error-message hidden"><img src="images/error-icon.svg" alt="error icon" width="20px"/>Enter a number</p>
           </div>
-          <button id="range-update" onclick="setRange()">Update</button>
+          <button id="range-update" class="bold" onclick="setRange()">Update</button>
         </div>
       </article>
       <article id="guess-card">
         <p>The Current Range is <span class="range" id="display-min">1</span> to <span class="range" id="display-max">100</span></p>
         <br>
-        <h5 class="challenger-name1">Challenger 1</h5>
+        <h5 class="challenger-name1 dark-grey">Challenger 1</h5>
         <div class="flex">
           <div class="name-container">
             <label for="name1">Name</label><br />
             <input type="text" id="name1" class="name">
+            <p class="error-message hidden"><img src="images/error-icon.svg" alt="error icon" width="20px"/>Enter a name</p>
           </div>
           <div>
             <label for="guess1">Guess</label><br />
             <input type="number" id="guess1" class="guess numeric-only">
+            <p class="error-message hidden"><img src="images/error-icon.svg" alt="error icon" width="20px"/>Enter a number</p>
           </div>
         </div>
-        <h5 class="challenger-name2">Challenger 2</h5>
+        <h5 class="challenger-name2 dark-grey">Challenger 2</h5>
         <div class="flex">
           <div class="name-container">
             <label for="name2">Name</label><br />
             <input type="text" id="name2" class="name">
+            <p class="error-message hidden"><img src="images/error-icon.svg" alt="error icon" width="20px"/>Enter a name</p>
           </div>
           <div>
             <label for="guess2">Guess</label><br />
             <input type="number" id="guess2" class="guess numeric-only">
+            <p class="error-message hidden"><img src="images/error-icon.svg" alt="error icon" width="20px"/>Enter a number</p>
           </div>
         </div>  
         <br> 
@@ -72,21 +77,21 @@
         </div>
       </article>
       <article id="score-card" class="latest-score">
-        <h5>Latest Score</h5>
+        <h5 class="dark-grey">Latest Score</h5>
         <div class="flex jc-space-around">
-          <div class="current-guess-box">
-            <p class="challenger-name1">Challenger 1 Name</p>
+          <div class="text-center">
+            <p class="challenger-name1 bold dark-grey">Challenger 1 Name</p>
             <p>current guess</p>
-            <h1 id="current-guess1">-</h1>
+            <h1 id="current-guess1" class="bold">20</h1>
             <p id="guess-result1"></p>
             <br>
           </div>
           <div id="divider">
           </div>
-          <div class="current-guess-box">
-            <p class="challenger-name2">Challenger 2 Name</p>
+          <div class="text-center">
+            <p class="challenger-name2 bold dark-grey">Challenger 2 Name</p>
             <p>current guess</p>
-            <h1 id="current-guess2">-</h1>
+            <h1 id="current-guess2" class="bold">10</h1>
             <p id="guess-result2"></p>
             <br>
           </div>

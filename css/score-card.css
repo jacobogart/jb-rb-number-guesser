@@ -1,26 +1,10 @@
-#score-card {
-  position: relative;
-  margin-bottom: 10px;
-}
-
-.current-guess-box {
-  text-align: center;
-}
-
 #score-card h1 {
-  font-weight: 700;
-  font-size: 100px;
+  font-size: 6em;
   padding: 10px;
 }
 
 #divider {
   border: 1px solid #D0D2D3;
-}
-
-.challenger-name1,
-.challenger-name2 {
-  font-weight: 700;
-  color: #6E6E6E;
 }
 
 #guess-result1,
