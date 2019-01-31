@@ -93,6 +93,7 @@ input {
   font-size: 20px;
   padding: 9px 0px;
   margin-top: 5px;
+  border: 2px solid #D0D2D3;
 }
 
 button {
@@ -103,6 +104,18 @@ button {
   padding: 10px 20px;
   text-transform: uppercase;
   font-size: 22px;
+}
+
+.error-message {
+  color: #DD1972;
+} 
+
+.error-message img {
+  margin-right: 5px;
+}
+
+.hidden {
+  display: none;
 }
 
 
