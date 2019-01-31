@@ -87,6 +87,10 @@ button {
   font-size: 22px;
 }
 
+.error {
+  border: 2px solid #DD1972;
+}
+
 
 
 

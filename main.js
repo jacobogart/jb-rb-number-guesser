@@ -206,12 +206,13 @@ function isNumberKey(evt){
     return true;
   } else {
     evt.preventDefault();
-    addErrorClass();
+    console.log(evt);
+    addErrorClass(evt.target);
     return false;
   }
 }
 
-function addErrorClass() {
-  
+function addErrorClass(element) {
+  element.classList.add('error');
 }
 
