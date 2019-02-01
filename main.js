@@ -23,16 +23,15 @@ function setRange(evt) {
   minRange = parseInt(document.getElementById('min-range').value) || '';
   maxRange = parseInt(document.getElementById('max-range').value) || '';
   if (!rangeCheck()) {
-    //evt.preventDefault();
     clearGame()  
   } else {
     randomNumber = generateRandomNumber(minRange, maxRange);
-    if (document.getElementById('min-range').value === '') {
-      minRange = 1;
-    }
-    if (document.getElementById('max-range').value === '') {
-      maxRange = 100;
-    }
+  if (document.getElementById('min-range').value === '') {
+    minRange = 1;
+  }
+  if (document.getElementById('max-range').value === '') {
+    maxRange = 100;
+  }
     document.getElementById('display-min').innerText = minRange;
     document.getElementById('display-max').innerText = maxRange;
   }
@@ -58,10 +57,10 @@ function updateName() {
 function updateGuess(evt) {
   guess1 = document.querySelector('#guess1').value;
   guess2 = document.querySelector('#guess2').value;
-
   if (!guessWithinRange(evt)) {
     evt.preventDefault();
     clearGame()  
+    console.log('test2')
   } else {
     var challengerGuessOne = document.querySelector('#current-guess1');
     challengerGuessOne.innerText = guess1;
@@ -77,6 +76,8 @@ function makeGuess(evt) {
   updateGuess(evt);
   guessResultOne();
   guessResultTwo();
+  console.log(randomNumber);
+
 }
 
 function guessResultOne() {
@@ -191,12 +192,16 @@ function resetGame() {
   for (var i = 0; i < challengerNameTwo.length; i++) {
     challengerNameTwo[i].innerText = 'Challenger 2';
   }
-  setRange();
   document.querySelector('#name1').value = '';
   document.querySelector('#name2').value = '';
   document.querySelector('#guess1').value = '';
   document.querySelector('#guess2').value = '';
-  console.log(randomNumber);
+  document.querySelector('#guess-result1').innerText = '';
+  document.querySelector('#guess-result2').innerText = '';
+  document.querySelector('#current-guess1').innerText = '-';
+  document.querySelector('#current-guess2').innerText = '-';
+  randomNumber = generateRandomNumber(minRange, maxRange);
+
 }
 
 function clearGame() {
@@ -261,17 +266,22 @@ function guessWithinRange(evt) {
 
   if (guess2 < minRange || guess2 > maxRange) {
     addErrorClass(evt.path[2].querySelector('#guess2'));
+  } else {
+    return true;
   }
 }
 
 function rangeCheck() {
-  console.log(minRange);
   if (minRange == '' || maxRange == '') {
     addErrorClass(document.getElementById('min-range'));
     addErrorClass(document.getElementById('max-range'));
-  } else if (maxRange < minRange) {
+  }  
+
+  if (maxRange < minRange) {
     addErrorClass(document.getElementById('max-range'));
-  } 
+  } else {
+    return true;
+  }
 }
 
 
