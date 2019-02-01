@@ -19,18 +19,23 @@ document.getElementById('reset-btn').addEventListener('click', resetGame);
 document.getElementById('clear-btn').addEventListener('click', clearGame);
 
 // SET RANGE
-function setRange() {
-  minRange = parseInt(document.getElementById('min-range').value);
-  maxRange = parseInt(document.getElementById('max-range').value);
-  randomNumber = generateRandomNumber(minRange, maxRange);
-  if (document.getElementById('min-range').value === '') {
-    minRange = 1;
+function setRange(evt) {
+  minRange = parseInt(document.getElementById('min-range').value) || '';
+  maxRange = parseInt(document.getElementById('max-range').value) || '';
+  if (!rangeCheck()) {
+    //evt.preventDefault();
+    clearGame()  
+  } else {
+    randomNumber = generateRandomNumber(minRange, maxRange);
+    if (document.getElementById('min-range').value === '') {
+      minRange = 1;
+    }
+    if (document.getElementById('max-range').value === '') {
+      maxRange = 100;
+    }
+    document.getElementById('display-min').innerText = minRange;
+    document.getElementById('display-max').innerText = maxRange;
   }
-  if (document.getElementById('max-range').value === '') {
-    maxRange = 100;
-  }
-  document.getElementById('display-min').innerText = minRange;
-  document.getElementById('display-max').innerText = maxRange;
 }
 
 function generateRandomNumber(min = 1, max = 100) {
@@ -53,12 +58,17 @@ function updateName() {
 function updateGuess(evt) {
   guess1 = document.querySelector('#guess1').value;
   guess2 = document.querySelector('#guess2').value;
-  var challengerGuessOne = document.querySelector('#current-guess1');
+
+  if (!guessWithinRange(evt)) {
+    evt.preventDefault();
+    clearGame()  
+  } else {
+    var challengerGuessOne = document.querySelector('#current-guess1');
     challengerGuessOne.innerText = guess1;
-  var challengerGuessTwo = document.querySelector('#current-guess2');
-    challengerGuessTwo.innerText = guess2; 
-  buttonDisable();
-  guessWithinRange(evt); 
+    var challengerGuessTwo = document.querySelector('#current-guess2');
+    challengerGuessTwo.innerText = guess2;
+  }
+  buttonDisable(); 
 }
 
 // GUESS RESULTS
@@ -213,12 +223,16 @@ function addErrorClass(element) {
   var icon = `<img src="images/error-icon.svg" alt="error icon" width="20px"/>`
   element.classList.add('error');
   element.nextElementSibling.classList.remove('hidden');
-  console.log(arguments.callee.caller.name);
   if (arguments.callee.caller.name == 'isNumberKey') {
-    console.log(element.nextElementSibling.innerText);
-    element.nextElementSibling.innerHTML = icon + 'Enter a name';
+    element.nextElementSibling.innerHTML = icon + 'Enter a number';
+  } else if (arguments.callee.caller.name == 'guessWithinRange' && guess1 == '') {
+    element.nextElementSibling.innerHTML= icon + 'Enter a number';
+  } else if (arguments.callee.caller.name == 'guessWithinRange' && guess2 == '') {
+    element.nextElementSibling.innerHTML= icon + 'Enter a number';
   } else if (arguments.callee.caller.name == 'guessWithinRange') {
     element.nextElementSibling.innerHTML= icon + 'Guess out of range';
+  } else if (arguments.callee.caller.name == 'rangeCheck' && minRange !== '') {
+    element.nextElementSibling.innerHTML= icon + 'Number too low';
   }
  }  
 
@@ -242,10 +256,26 @@ function isNumberKey(evt){
 
 function guessWithinRange(evt) {
   if (guess1 < minRange || guess1 > maxRange) {
-    addErrorClass(evt.path[2].querySelector('#guess1'));  
-  }
+    addErrorClass(evt.path[2].querySelector('#guess1'));    
+  } 
+
   if (guess2 < minRange || guess2 > maxRange) {
-    addErrorClass(evt.path[2].querySelector('#guess2'));  
+    addErrorClass(evt.path[2].querySelector('#guess2'));
   }
 }
+
+function rangeCheck() {
+  console.log(minRange);
+  if (minRange == '' || maxRange == '') {
+    addErrorClass(document.getElementById('min-range'));
+    addErrorClass(document.getElementById('max-range'));
+  } else if (maxRange < minRange) {
+    addErrorClass(document.getElementById('max-range'));
+  } 
+}
+
+
+
+
+
 
