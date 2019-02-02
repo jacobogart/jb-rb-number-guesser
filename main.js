@@ -14,6 +14,7 @@ for (var i = 0; i < numberOnlyFields.length; i++) {
 }
 
 // EVENT LISTENERS
+document.getElementById('range-update').addEventListener('click', setRange);
 document.getElementById('submit-btn').addEventListener('click', makeGuess);
 document.getElementById('reset-btn').addEventListener('click', resetGame);
 document.getElementById('clear-btn').addEventListener('click', clearGame);
