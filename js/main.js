@@ -242,15 +242,10 @@ function addErrorClass(element) {
   }
  }  
 
-
-function removeErrorClass(element) {
-  element.classList.remove('error');
-  element.nextElementSibling.classList.add('hidden');
-}
-
 function isNumberKey(evt){
+  var regex = /[\d]/;
   var char = evt.key;
-  if (char === 'Backspace' || char === 'Tab' || parseInt(char) || parseInt(char) === 0) {
+  if (char === 'Backspace' || char === 'Tab' || regex.test(char)) {
     removeErrorClass(evt.target);
     return true;
   } else {
@@ -258,6 +253,11 @@ function isNumberKey(evt){
     addErrorClass(evt.target);
     return false;
   }
+}
+
+function removeErrorClass(element) {
+  element.classList.remove('error');
+  element.nextElementSibling.classList.add('hidden');
 }
 
 function guessWithinRange(evt) {
