@@ -5,19 +5,23 @@ var minRange = 1;
 var maxRange = 100;
 var challengerNameOne = document.querySelectorAll('.challenger-name1');
 var challengerNameTwo = document.querySelectorAll('.challenger-name2');
-var numberOnlyFields = document.querySelectorAll('.numeric-only');
+var numberFields = document.querySelectorAll('.numeric-only');
+var nameFields = document.querySelectorAll('.name');
 
 // ON LOAD FUNCTIONS
 buttonDisable();
-for (var i = 0; i < numberOnlyFields.length; i++) {
-  numberOnlyFields[i].addEventListener('keydown', isNumberKey);
-}
 
 // EVENT LISTENERS
 document.getElementById('range-update').addEventListener('click', setRange);
 document.getElementById('submit-btn').addEventListener('click', makeGuess);
 document.getElementById('reset-btn').addEventListener('click', resetGame);
 document.getElementById('clear-btn').addEventListener('click', clearGame);
+for (var i = 0; i < numberFields.length; i++) {
+  numberFields[i].addEventListener('keydown', isNumber);
+}
+for (var i = 0; i < nameFields.length; i++) {
+  nameFields[i].addEventListener('keydown', isAlphaNumeric);
+}
 
 // SET RANGE
 function setRange(evt) {
@@ -242,10 +246,23 @@ function addErrorClass(element) {
   }
  }  
 
-function isNumberKey(evt){
+function isNumber(evt){
   var regex = /[\d]/;
   var char = evt.key;
   if (char === 'Backspace' || char === 'Tab' || regex.test(char)) {
+    removeErrorClass(evt.target);
+    return true;
+  } else {
+    evt.preventDefault();
+    addErrorClass(evt.target);
+    return false;
+  }
+}
+
+function isAlphaNumeric(evt){
+  var regex = /[\W]/;
+  var char = evt.key;
+  if (char === 'Backspace' || char === 'Tab' || !regex.test(char)) {
     removeErrorClass(evt.target);
     return true;
   } else {
