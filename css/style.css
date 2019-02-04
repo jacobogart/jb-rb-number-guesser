@@ -99,11 +99,16 @@ input {
 button {
   background-color: #6E6E6E;
   color: #FFF;
+  cursor: pointer;
   border-radius: 30px;
   border-style: none;
   padding: 10px 20px;
   text-transform: uppercase;
   font-size: 22px;
+}
+
+button:hover {
+  background-color: #DD1972;
 }
 
 
