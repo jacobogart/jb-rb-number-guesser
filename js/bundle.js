@@ -38,6 +38,7 @@ module.exports = buttonDisable;
 var isAlphaNumeric = require('./isAlphaNumeric');
 var isNumber = require('./isNumber');
 var removeErrorClass = require('./removeErrorClass');
+var addError = require('./addError');
 
 function checkFields(e) {
   if (e.target.classList.contains('numeric-only') && isNumber(e.key)) {
@@ -51,7 +52,7 @@ function checkFields(e) {
 }
 
 module.exports = checkFields;
-},{"./isAlphaNumeric":11,"./isNumber":12,"./removeErrorClass":16}],4:[function(require,module,exports){
+},{"./addError":1,"./isAlphaNumeric":11,"./isNumber":12,"./removeErrorClass":16}],4:[function(require,module,exports){
 function clearGame() {
   document.querySelector('#guess1').value = '';
   document.querySelector('#guess2').value = '';
