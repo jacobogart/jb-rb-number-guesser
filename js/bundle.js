@@ -1,4 +1,24 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
+//var isAlphaNumeric = require('./isAlphaNumeric');
+var isNumber = require('./isNumber');
+
+// ERROR FUNCTIONS
+function addError(element) {
+  var icon = `<img src="images/error-icon.svg" alt="error icon" width="20px"/>`;
+  element.classList.add('error');
+  element.nextElementSibling.classList.remove('hidden');
+  var num = parseInt(element.value);
+  if (element.classList.contains('numeric-only') && !isNumber(element.value)) {
+    element.nextElementSibling.innerHTML = icon + 'Enter a number';
+  } else if (element.classList.contains('guess') && num > maxRange) {
+    element.nextElementSibling.innerHTML = icon + 'Number too high';
+  } else if (element.classList.contains('guess') && num < minRange) {
+    element.nextElementSibling.innerHTML = icon + 'Number too low';
+  }
+}
+
+module.exports = addError;
+},{"./isNumber":12}],2:[function(require,module,exports){
 function buttonDisable() {
   if (document.querySelector('#name1').value === '') {
     document.getElementById("reset-btn").disabled = true;
@@ -14,7 +34,7 @@ function buttonDisable() {
 }
 
 module.exports = buttonDisable;
-},{}],2:[function(require,module,exports){
+},{}],3:[function(require,module,exports){
 var isAlphaNumeric = require('./isAlphaNumeric');
 var isNumber = require('./isNumber');
 var removeErrorClass = require('./removeErrorClass');
@@ -31,14 +51,14 @@ function checkFields(e) {
 }
 
 module.exports = checkFields;
-},{"./isAlphaNumeric":10,"./isNumber":11,"./removeErrorClass":15}],3:[function(require,module,exports){
+},{"./isAlphaNumeric":11,"./isNumber":12,"./removeErrorClass":16}],4:[function(require,module,exports){
 function clearGame() {
   document.querySelector('#guess1').value = '';
   document.querySelector('#guess2').value = '';
 }
 
 module.exports = clearGame;
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 function correctGuessOne() {
   var right = document.querySelector('.right');
   right.innerHTML += `<div class="winner-card">
@@ -78,7 +98,7 @@ function correctGuessOne() {
 }
 
 module.exports = correctGuessOne;
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 function correctGuessTwo() {
   var right = document.querySelector('.right');
   right.innerHTML += `<div class="winner-card">
@@ -118,13 +138,13 @@ function correctGuessTwo() {
 }
 
 module.exports = correctGuessTwo;
-},{}],6:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 function generateRandomNumber(min = 1, max = 100) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 module.exports = generateRandomNumber;
-},{}],7:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 var correctGuessOne = require('./correctGuessOne');
 
 function guessResultOne() {
@@ -140,7 +160,7 @@ function guessResultOne() {
 }
 
 module.exports = guessResultOne;
-},{"./correctGuessOne":4}],8:[function(require,module,exports){
+},{"./correctGuessOne":5}],9:[function(require,module,exports){
 var correctGuessTwo = require('./correctGuessTwo');
 
 function guessResultTwo() {
@@ -156,7 +176,9 @@ function guessResultTwo() {
 }
 
 module.exports = guessResultTwo;
-},{"./correctGuessTwo":5}],9:[function(require,module,exports){
+},{"./correctGuessTwo":6}],10:[function(require,module,exports){
+var addError = require('./addError');
+
 function guessWithinRange(evt) {
   if (guess1 < minRange || guess1 > maxRange) {
     evt.preventDefault();
@@ -172,7 +194,7 @@ function guessWithinRange(evt) {
 }
 
 module.exports = guessWithinRange;
-},{}],10:[function(require,module,exports){
+},{"./addError":1}],11:[function(require,module,exports){
 function isAlphaNumeric(char){
   var regex = /[\W]/;
   if (char === 'Backspace' || char === 'Tab' || char === ' ' || !regex.test(char)) {
@@ -183,7 +205,7 @@ function isAlphaNumeric(char){
 }
 
 module.exports = isAlphaNumeric;
-},{}],11:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 function isNumber(char){
   var regex = /[\d]/;
   if (char === 'Backspace' || char === 'Tab' || regex.test(char)) {
@@ -194,7 +216,13 @@ function isNumber(char){
 }
 
 module.exports = isNumber;
-},{}],12:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
+var name1, name2, guess1, guess2;
+var minRange = 1; 
+var maxRange = 100;
+var challengerNameOne = document.querySelectorAll('.challenger-name1');
+var challengerNameTwo = document.querySelectorAll('.challenger-name2');
+
 var generateRandomNumber = require('./generateRandomNumber');
 var setRange = require('./setRange');
 var makeGuess = require('./makeGuess');
@@ -205,11 +233,6 @@ var buttonDisable = require('./buttonDisable');
 
 // GLOBAL VARIABLES
 var randomNumber = generateRandomNumber();
-var name1, name2, guess1, guess2;
-var minRange = 1; 
-var maxRange = 100;
-var challengerNameOne = document.querySelectorAll('.challenger-name1');
-var challengerNameTwo = document.querySelectorAll('.challenger-name2');
 
 // ON LOAD FUNCTIONS
 buttonDisable();
@@ -227,7 +250,7 @@ document.querySelector('.left').addEventListener('keydown', checkFields);
 
 
 
-},{"./buttonDisable":1,"./checkFields":2,"./clearGame":3,"./generateRandomNumber":6,"./makeGuess":13,"./resetGame":16,"./setRange":17}],13:[function(require,module,exports){
+},{"./buttonDisable":2,"./checkFields":3,"./clearGame":4,"./generateRandomNumber":7,"./makeGuess":14,"./resetGame":17,"./setRange":18}],14:[function(require,module,exports){
 var updateName = require('./updateName');
 var updateGuess = require('./updateGuess');
 var guessResultOne = require('./guessResultOne');
@@ -242,7 +265,9 @@ function makeGuess(evt) {
 }
 
 module.exports = makeGuess;
-},{"./guessResultOne":7,"./guessResultTwo":8,"./updateGuess":18,"./updateName":19}],14:[function(require,module,exports){
+},{"./guessResultOne":8,"./guessResultTwo":9,"./updateGuess":19,"./updateName":20}],15:[function(require,module,exports){
+var addError = require('./addError');
+
 function rangeCheck() {
   if (minRange == '' || maxRange == '') {
     addError(document.getElementById('min-range'));
@@ -257,14 +282,14 @@ function rangeCheck() {
 }
 
 module.exports = rangeCheck;
-},{}],15:[function(require,module,exports){
+},{"./addError":1}],16:[function(require,module,exports){
 function removeErrorClass(element) {
   element.classList.remove('error');
   element.nextElementSibling.classList.add('hidden');
 }
 
 module.exports = removeErrorClass;
-},{}],16:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 var generateRandomNumber = require('./generateRandomNumber');
 
 // GAME RESETS
@@ -287,7 +312,7 @@ function resetGame() {
 }
 
 module.exports = resetGame;
-},{"./generateRandomNumber":6}],17:[function(require,module,exports){
+},{"./generateRandomNumber":7}],18:[function(require,module,exports){
 // SET RANGE
 var generateRandomNumber = require('./generateRandomNumber');
 var clearGame = require('./clearGame');
@@ -312,7 +337,7 @@ function setRange(evt) {
 }
 
 module.exports = setRange;
-},{"./clearGame":3,"./generateRandomNumber":6,"./rangeCheck":14}],18:[function(require,module,exports){
+},{"./clearGame":4,"./generateRandomNumber":7,"./rangeCheck":15}],19:[function(require,module,exports){
 
 var guessWithinRange = require('./guessWithinRange');
 var buttonDisable = require('./buttonDisable');
@@ -335,7 +360,7 @@ function updateGuess(evt) {
 }
 
 module.exports = updateGuess;
-},{"./buttonDisable":1,"./clearGame":3,"./guessWithinRange":9}],19:[function(require,module,exports){
+},{"./buttonDisable":2,"./clearGame":4,"./guessWithinRange":10}],20:[function(require,module,exports){
 var challengerNameOne = document.querySelectorAll('.challenger-name1');
 var challengerNameTwo = document.querySelectorAll('.challenger-name2');
 var buttonDisable = require('./buttonDisable');
@@ -354,4 +379,4 @@ function updateName() {
 }
 
 module.exports = updateName;
-},{"./buttonDisable":1}]},{},[12]);
+},{"./buttonDisable":2}]},{},[13]);
