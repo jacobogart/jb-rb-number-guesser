@@ -24,7 +24,7 @@ function setRange(evt) {
   minRange = parseInt(document.getElementById('min-range').value) || '';
   maxRange = parseInt(document.getElementById('max-range').value) || '';
   if (!rangeCheck()) {
-    clearGame()  
+    clearGame();  
   } else {
     randomNumber = generateRandomNumber(minRange, maxRange);
   if (document.getElementById('min-range').value === '') {
@@ -52,7 +52,7 @@ function updateName() {
   for (var i = 0; i < challengerNameTwo.length; i++) {
     challengerNameTwo[i].innerText = name2;
   }
-  buttonDisable()
+  buttonDisable();
 }
 
 function updateGuess(evt) {
@@ -60,8 +60,8 @@ function updateGuess(evt) {
   guess2 = document.querySelector('#guess2').value;
   if (!guessWithinRange(evt)) {
     evt.preventDefault();
-    clearGame()  
-    console.log('test2')
+    clearGame();  
+    console.log('test2');
   } else {
     var challengerGuessOne = document.querySelector('#current-guess1');
     challengerGuessOne.innerText = guess1;
@@ -141,7 +141,7 @@ function correctGuessOne() {
           <img class="delete-btn" src="images/icons8-cancel-2.svg" alt="delete card button" />
         </div>
       </div>`
-  right.insertBefore(winnerCardOne, right.childNodes[0])
+  right.insertBefore(winnerCardOne, right.childNodes[0]);
 
 }
 
@@ -182,7 +182,7 @@ function correctGuessTwo() {
         </div>
       </div>`
 
-  right.insertBefore(winnerCardTwo, right.childNodes[0])
+  right.insertBefore(winnerCardTwo, right.childNodes[0]);
 }
 
 // GAME RESETS
@@ -226,7 +226,7 @@ function buttonDisable() {
 
 // ERROR FUNCTIONS
 function addErrorClass(element) {
-  var icon = `<img src="images/error-icon.svg" alt="error icon" width="20px"/>`
+  var icon = `<img src="images/error-icon.svg" alt="error icon" width="20px"/>`;
   element.classList.add('error');
   element.nextElementSibling.classList.remove('hidden');
   if (arguments.callee.caller.name == 'isNumberKey') {
