@@ -212,14 +212,18 @@ function clearGame() {
 function buttonDisable() {
   if (document.querySelector('#name1').value === '') {
     document.getElementById("reset-btn").disabled = true;
+    document.getElementById("reset-btn").classList.add('disabled');
   } else {
     document.getElementById("reset-btn").disabled = false;
+    document.getElementById("reset-btn").classList.remove('disabled');
   }
 
   if (document.querySelector('#guess1').value === '') {
     document.getElementById("clear-btn").disabled = true;
+    document.getElementById("clear-btn").classList.add('disabled');
   } else {
     document.getElementById("clear-btn").disabled = false;
+    document.getElementById("clear-btn").classList.remove('disabled');
   }
 }
 
