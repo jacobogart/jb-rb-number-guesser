@@ -1,3 +1,5 @@
+var addError = require('./addError');
+
 function guessWithinRange(evt) {
   if (guess1 < minRange || guess1 > maxRange) {
     evt.preventDefault();

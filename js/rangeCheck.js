@@ -1,4 +1,4 @@
-var addError = require('./rangeCheck');
+var addError = require('./addError');
 
 function rangeCheck() {
   if (minRange == '' || maxRange == '') {
