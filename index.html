@@ -28,13 +28,13 @@
         <div class="flex">
           <div>
             <label for="min-range">Min Range</label>
-            <input type="text" name="minRange" id="min-range" class="numeric-only">
-            <p class="error-message hidden"><img src="images/error-icon.svg" alt="error icon" width="20px"/>Enter a number</p>
+            <input type="text" name="minRange" id="min-range" class="numeric-only range-input">
+            <p class="error-message hidden"><img src="images/error-icon.svg" alt="error icon" width="20px"/></p>
           </div>
           <div>
             <label for="max-range">Max Range</label>
-            <input type="text" name="maxRange" id="max-range" class="numeric-only">
-            <p class="error-message hidden"><img src="images/error-icon.svg" alt="error icon" width="20px"/>Enter a number</p>
+            <input type="text" name="maxRange" id="max-range" class="numeric-only range-input">
+            <p class="error-message hidden"><img src="images/error-icon.svg" alt="error icon" width="20px"/></p>
           </div>
           <button id="range-update" class="bold">Update</button>
         </div>
@@ -65,7 +65,7 @@
           <div>
             <label for="guess2">Guess</label><br />
             <input type="number" id="guess2" class="guess numeric-only">
-            <p class="error-message hidden"><img src="images/error-icon.svg" alt="error icon" width="20px"/>Enter a number</p>
+            <p class="error-message hidden"><img src="images/error-icon.svg" alt="error icon" width="20px"/></p>
           </div>
         </div>  
         <br> 
@@ -102,6 +102,7 @@
     <section class="right">
     </section>
   </main>
-  <script type="text/javascript" src="js/main.js"></script>
+  <!-- <script type="text/javascript" src="js/main.js"></script> -->
+  <script src="js/bundle.js"></script>
 </body>
 </html>
