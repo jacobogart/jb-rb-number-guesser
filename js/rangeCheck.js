@@ -1,3 +1,5 @@
+var addError = require('./rangeCheck');
+
 function rangeCheck() {
   if (minRange == '' || maxRange == '') {
     addError(document.getElementById('min-range'));
