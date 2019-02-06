@@ -7,6 +7,7 @@ var challengerNameOne = document.querySelectorAll('.challenger-name1');
 var challengerNameTwo = document.querySelectorAll('.challenger-name2');
 var numberFields = document.querySelectorAll('.numeric-only');
 var nameFields = document.querySelectorAll('.name');
+var guessFields = document.querySelectorAll('.guess')
 
 // ON LOAD FUNCTIONS
 buttonDisable();
@@ -21,6 +22,9 @@ for (var i = 0; i < numberFields.length; i++) {
 }
 for (var i = 0; i < nameFields.length; i++) {
   nameFields[i].addEventListener('keydown', isAlphaNumeric);
+}
+for (var i = 0; i < guessFields.length; i++) {
+  guessFields[i].addEventListener('keyup', buttonDisable);
 }
 
 // SET RANGE
@@ -224,12 +228,12 @@ function buttonDisable() {
     document.getElementById("reset-btn").classList.remove('disabled');
   }
 
-  if (document.querySelector('#guess1').value === '') {
-    document.getElementById("clear-btn").disabled = true;
-    document.getElementById("clear-btn").classList.add('disabled');
-  } else {
+  if (document.querySelector('#guess1').value !== '' || document.querySelector('#guess2').value !== '') {
     document.getElementById("clear-btn").disabled = false;
     document.getElementById("clear-btn").classList.remove('disabled');
+  } else {
+    document.getElementById("clear-btn").disabled = true;
+    document.getElementById("clear-btn").classList.add('disabled');
   }
 }
 
@@ -238,7 +242,6 @@ function addErrorClass(element) {
   var icon = `<img src="images/error-icon.svg" alt="error icon" width="20px"/>`
   element.classList.add('error');
   element.nextElementSibling.classList.remove('hidden');
-  console.log(element.classList.contains('name'));
   if (arguments.callee.caller.name == 'isNumberKey') {
     element.nextElementSibling.innerHTML = icon + 'Enter a number';
   } else if (element.classList.contains('name')) {
