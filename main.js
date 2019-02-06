@@ -3,6 +3,7 @@ var randomNumber = generateRandomNumber();
 var name1, name2, guess1, guess2;
 var minRange = 1; 
 var maxRange = 100;
+var guessCount = 0;
 var challengerNameOne = document.querySelectorAll('.challenger-name1');
 var challengerNameTwo = document.querySelectorAll('.challenger-name2');
 var numberFields = document.querySelectorAll('.numeric-only');
@@ -64,6 +65,7 @@ function updateName() {
 }
 
 function updateGuess(evt) {
+  console.log(guessWithinRange(evt));
   guess1 = document.querySelector('#guess1').value;
   guess2 = document.querySelector('#guess2').value;
   if (!guessWithinRange(evt)) {
@@ -80,12 +82,12 @@ function updateGuess(evt) {
 
 // GUESS RESULTS
 function makeGuess(evt) {
+  guessCount += 2;
   updateName();
   updateGuess(evt);
   guessResultOne();
   guessResultTwo();
   console.log(randomNumber);
-
 }
 
 function guessResultOne() {
@@ -139,7 +141,7 @@ function correctGuessOne() {
         <hr />
         <div class="flex jc-space-between bottom-line">
           <h3 class="guesses">
-            <span class="bold guesses-number">47</span>
+            <span class="bold guesses-number">${guessCount-1}</span>
             Guesses
           </h3>
           <h3 class="minutes">
@@ -149,6 +151,8 @@ function correctGuessOne() {
           <img class="delete-btn" src="images/icons8-cancel-2.svg" alt="delete card button" />
         </div>
       </div>`
+  guessCount = 0;
+  console.log(guessCount);
   right.insertBefore(winnerCardOne, right.childNodes[0]);
 }
 
@@ -179,7 +183,7 @@ function correctGuessTwo() {
         <hr />
         <div class="flex jc-space-between bottom-line">
           <h3 class="guesses">
-            <span class="bold guesses-number">47</span>
+            <span class="bold guesses-number">${guessCount-1}</span>
             Guesses
           </h3>
           <h3 class="minutes">
@@ -189,7 +193,8 @@ function correctGuessTwo() {
           <img class="delete-btn" src="images/icons8-cancel-2.svg" alt="delete card button" />
         </div>
       </div>`
-
+  guessCount = 0;
+  console.log(guessCount);
   right.insertBefore(winnerCardTwo, right.childNodes[0]);
 }
 
@@ -291,13 +296,21 @@ function isAlphaNumeric(e){
 }
 
 function guessWithinRange(evt) {
-  if (guess1 < minRange || guess1 > maxRange) {
-    addErrorClass(evt.path[2].querySelector('#guess1'));    
-  } 
-
-  if (guess2 < minRange || guess2 > maxRange) {
+  if ((guess2 < minRange || guess2 > maxRange) && (guess1 < minRange || guess1 > maxRange)) {
+    addErrorClass(evt.path[2].querySelector('#guess1')); 
+    addErrorClass(evt.path[2].querySelector('#guess2')); 
+    return false; 
+  } else if (guess1 < minRange || guess1 > maxRange) {
+    addErrorClass(evt.path[2].querySelector('#guess1'));
+    removeErrorClass(evt.path[2].querySelector('#guess2'));
+    return false;   
+  } else if (guess2 < minRange || guess2 > maxRange) {
     addErrorClass(evt.path[2].querySelector('#guess2'));
+    removeErrorClass(evt.path[2].querySelector('#guess1'));
+    return false;
   }
+  removeErrorClass(evt.path[2].querySelector('#guess1'));
+  removeErrorClass(evt.path[2].querySelector('#guess2'));
 }
 
 function rangeCheck() {
