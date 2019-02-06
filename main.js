@@ -5,19 +5,23 @@ var minRange = 1;
 var maxRange = 100;
 var challengerNameOne = document.querySelectorAll('.challenger-name1');
 var challengerNameTwo = document.querySelectorAll('.challenger-name2');
-var numberOnlyFields = document.querySelectorAll('.numeric-only');
+var numberFields = document.querySelectorAll('.numeric-only');
+var nameFields = document.querySelectorAll('.name');
 
 // ON LOAD FUNCTIONS
 buttonDisable();
-for (var i = 0; i < numberOnlyFields.length; i++) {
-  numberOnlyFields[i].addEventListener('keydown', isNumberKey);
-}
 
 // EVENT LISTENERS
 document.getElementById('submit-btn').addEventListener('click', makeGuess);
 document.getElementById('reset-btn').addEventListener('click', resetGame);
 document.getElementById('clear-btn').addEventListener('click', clearGame);
 document.querySelector('.right').addEventListener('click', deleteCard);
+for (var i = 0; i < numberFields.length; i++) {
+  numberFields[i].addEventListener('keydown', isNumberKey);
+}
+for (var i = 0; i < nameFields.length; i++) {
+  nameFields[i].addEventListener('keydown', isAlphaNumeric);
+}
 
 // SET RANGE
 function setRange(evt) {
@@ -235,16 +239,19 @@ function addErrorClass(element) {
   var icon = `<img src="images/error-icon.svg" alt="error icon" width="20px"/>`
   element.classList.add('error');
   element.nextElementSibling.classList.remove('hidden');
+  console.log(element.classList.contains('name'));
   if (arguments.callee.caller.name == 'isNumberKey') {
     element.nextElementSibling.innerHTML = icon + 'Enter a number';
+  } else if (element.classList.contains('name')) {
+    element.nextElementSibling.innerHTML = icon + 'Enter a name';
   } else if (arguments.callee.caller.name == 'guessWithinRange' && guess1 == '') {
-    element.nextElementSibling.innerHTML= icon + 'Enter a number';
+    element.nextElementSibling.innerHTML = icon + 'Enter a number';
   } else if (arguments.callee.caller.name == 'guessWithinRange' && guess2 == '') {
-    element.nextElementSibling.innerHTML= icon + 'Enter a number';
+    element.nextElementSibling.innerHTML = icon + 'Enter a number';
   } else if (arguments.callee.caller.name == 'guessWithinRange') {
-    element.nextElementSibling.innerHTML= icon + 'Guess out of range';
+    element.nextElementSibling.innerHTML = icon + 'Guess out of range';
   } else if (arguments.callee.caller.name == 'rangeCheck' && minRange !== '') {
-    element.nextElementSibling.innerHTML= icon + 'Number too low';
+    element.nextElementSibling.innerHTML = icon + 'Number too low';
   }
  }  
 
@@ -254,14 +261,28 @@ function removeErrorClass(element) {
   element.nextElementSibling.classList.add('hidden');
 }
 
-function isNumberKey(evt){
-  var char = evt.key;
-  if (char === 'Backspace' || char === 'Tab' || parseInt(char) || parseInt(char) === 0) {
-    removeErrorClass(evt.target);
+function isNumberKey(e){
+  var char = e.key;
+  if (char === 'Backspace' || char === 'Tab' || char === 'Shift' || parseInt(char) || parseInt(char) === 0) {
+    removeErrorClass(e.target);
     return true;
   } else {
-    evt.preventDefault();
-    addErrorClass(evt.target);
+    e.preventDefault();
+    addErrorClass(e.target);
+    return false;
+  }
+}
+
+function isAlphaNumeric(e){
+  // The \w regex stands for all alphanumeric characters
+  var regex = /\w/;
+  var char = e.key;
+  if (char === 'Backspace' || char === 'Tab' || char === ' ' || regex.test(char)) {
+    removeErrorClass(e.target);
+    return true;
+  } else {
+    e.preventDefault();
+    addErrorClass(e.target);
     return false;
   }
 }
