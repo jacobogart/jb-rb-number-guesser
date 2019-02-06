@@ -17,6 +17,7 @@ for (var i = 0; i < numberOnlyFields.length; i++) {
 document.getElementById('submit-btn').addEventListener('click', makeGuess);
 document.getElementById('reset-btn').addEventListener('click', resetGame);
 document.getElementById('clear-btn').addEventListener('click', clearGame);
+document.querySelector('.right').addEventListener('click', deleteCard);
 
 // SET RANGE
 function setRange(evt) {
@@ -285,6 +286,12 @@ function rangeCheck() {
     addErrorClass(document.getElementById('max-range'));
   } else {
     return true;
+  }
+}
+
+function deleteCard(e) {
+  if (e.target.className === 'delete-btn') {
+    e.target.parentElement.parentElement.remove();
   }
 }
 
