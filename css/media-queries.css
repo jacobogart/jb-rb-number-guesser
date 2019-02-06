@@ -1,4 +1,4 @@
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
   main {
     flex-direction: column;
     max-height: none;
@@ -39,9 +39,22 @@
     flex-direction: column;
   }
 
+  header.flex {
+    align-items: center;
+  }
+
   .top-line {text-align: center;}
 
   .bottom-line {
     flex-direction: row;
   }
 }
+
+@media screen and (max-width: 600px) {
+   h1 {
+    font-size: 30px;
+   }
+
+   p {
+    font-size: 16px;
+   }

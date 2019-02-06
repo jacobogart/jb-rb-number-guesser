@@ -2,6 +2,10 @@
   width: 90%;
 }
 
+.guess {
+  width: 100%;
+}
+
 .name-container {
   flex-grow: 2;
 }
