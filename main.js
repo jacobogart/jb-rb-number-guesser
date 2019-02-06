@@ -61,7 +61,6 @@ function updateGuess(evt) {
   if (!guessWithinRange(evt)) {
     evt.preventDefault();
     clearGame()  
-    console.log('test2')
   } else {
     var challengerGuessOne = document.querySelector('#current-guess1');
     challengerGuessOne.innerText = guess1;
@@ -203,12 +202,14 @@ function resetGame() {
   document.querySelector('#current-guess1').innerText = '-';
   document.querySelector('#current-guess2').innerText = '-';
   randomNumber = generateRandomNumber(minRange, maxRange);
+  buttonDisable();
 
 }
 
 function clearGame() {
   document.querySelector('#guess1').value = '';
   document.querySelector('#guess2').value = '';
+  buttonDisable();
 }
 
 function buttonDisable() {
@@ -299,7 +300,6 @@ function deleteCard(e) {
 function expandRange() {
   maxRange += 10;
   minRange -= 10;
-  console.log(maxRange, minRange)
   document.getElementById('display-min').innerText = minRange;
   document.getElementById('display-max').innerText = maxRange;
 }
