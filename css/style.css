@@ -127,7 +127,9 @@ button {
   background-color: #D0D2D3;
 }
 
-
+button:focus {
+  outline:0;
+}
 
 
 
