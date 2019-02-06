@@ -106,6 +106,7 @@ function guessResultTwo() {
 }
 
 function correctGuessOne() {
+  expandRange();
   var right = document.querySelector('.right');
   right.innerHTML += `<div class="winner-card">
         <div class="flex jc-center top-line">
@@ -141,11 +142,11 @@ function correctGuessOne() {
           <img class="delete-btn" src="images/icons8-cancel-2.svg" alt="delete card button" />
         </div>
       </div>`
-  right.insertBefore(winnerCardOne, right.childNodes[0])
-
+  right.insertBefore(winnerCardOne, right.childNodes[0]);
 }
 
 function correctGuessTwo() {
+  expandRange();
   var right = document.querySelector('.right');
   right.innerHTML += `<div class="winner-card">
         <div class="flex jc-center top-line">
@@ -182,7 +183,7 @@ function correctGuessTwo() {
         </div>
       </div>`
 
-  right.insertBefore(winnerCardTwo, right.childNodes[0])
+  right.insertBefore(winnerCardTwo, right.childNodes[0]);
 }
 
 // GAME RESETS
@@ -293,6 +294,14 @@ function deleteCard(e) {
   if (e.target.className === 'delete-btn') {
     e.target.parentElement.parentElement.remove();
   }
+}
+
+function expandRange() {
+  maxRange += 10;
+  minRange -= 10;
+  console.log(maxRange, minRange)
+  document.getElementById('display-min').innerText = minRange;
+  document.getElementById('display-max').innerText = maxRange;
 }
 
 
