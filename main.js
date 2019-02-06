@@ -297,8 +297,6 @@ function guessWithinRange(evt) {
 
   if (guess2 < minRange || guess2 > maxRange) {
     addErrorClass(evt.path[2].querySelector('#guess2'));
-  } else {
-    return true;
   }
 }
 
