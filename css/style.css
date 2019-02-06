@@ -123,7 +123,9 @@ button {
   display: none;
 }
 
-
+.disabled {
+  background-color: #D0D2D3;
+}
 
 
 
