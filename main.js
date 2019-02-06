@@ -18,6 +18,7 @@ buttonDisable();
 document.getElementById('submit-btn').addEventListener('click', makeGuess);
 document.getElementById('reset-btn').addEventListener('click', resetGame);
 document.getElementById('clear-btn').addEventListener('click', clearGame);
+document.getElementById('card-clear-btn').addEventListener('click', cardClear);
 document.querySelector('.right').addEventListener('click', deleteCard);
 for (var i = 0; i < numberFields.length; i++) {
   numberFields[i].addEventListener('keydown', isNumberKey);
@@ -156,7 +157,8 @@ function correctGuessOne() {
           </h3>
           <img class="delete-btn" src="images/icons8-cancel-2.svg" alt="delete card button" />
         </div>
-      </div>`
+      </div>`;
+  document.getElementById("card-clear-btn").classList.remove('hidden');
   guessCount = 0;
 }
 
@@ -198,7 +200,8 @@ function correctGuessTwo() {
           </h3>
           <img class="delete-btn" src="images/icons8-cancel-2.svg" alt="delete card button" />
         </div>
-      </div>`
+      </div>`;
+  document.getElementById("card-clear-btn").classList.remove('hidden');
   guessCount = 0;
 }
 
@@ -337,6 +340,9 @@ function deleteCard(e) {
   if (e.target.className === 'delete-btn') {
     e.target.parentElement.parentElement.remove();
   }
+  if (e.target.id === 'card-clear-btn') {
+    document.querySelector('.right').innerHTML = '';
+  }
 }
 
 function expandRange() {
@@ -350,7 +356,9 @@ function expandRange() {
   document.getElementById('display-max').innerText = maxRange;
 }
 
-
+function cardClear() {
+  
+}
 
 
 
