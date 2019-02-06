@@ -4,6 +4,7 @@ var name1, name2, guess1, guess2;
 var minRange = 1; 
 var maxRange = 100;
 var guessCount = 0;
+var startTime;
 var challengerNameOne = document.querySelectorAll('.challenger-name1');
 var challengerNameTwo = document.querySelectorAll('.challenger-name2');
 var numberFields = document.querySelectorAll('.numeric-only');
@@ -65,9 +66,9 @@ function updateName() {
 }
 
 function updateGuess(evt) {
-  console.log(guessWithinRange(evt));
   guess1 = document.querySelector('#guess1').value;
   guess2 = document.querySelector('#guess2').value;
+  // debugger;
   if (!guessWithinRange(evt)) {
     evt.preventDefault();
     clearGame()  
@@ -80,8 +81,11 @@ function updateGuess(evt) {
   buttonDisable(); 
 }
 
-// GUESS RESULTS
+// GUESS RESULTS9
 function makeGuess(evt) {
+  if (guessCount === 0) {
+    startTime = Date.now();
+  }
   guessCount += 2;
   updateName();
   updateGuess(evt);
@@ -116,6 +120,8 @@ function guessResultTwo() {
 
 function correctGuessOne() {
   expandRange();
+  var endTime = Date.now();
+  var gameTime = ((endTime - startTime) / 60000).toFixed(2);
   var right = document.querySelector('.right');
   right.innerHTML += `<div class="winner-card">
         <div class="flex jc-center top-line">
@@ -145,19 +151,19 @@ function correctGuessOne() {
             Guesses
           </h3>
           <h3 class="minutes">
-            <span class="bold minutes-number">1.35</span>
+            <span class="bold minutes-number">${gameTime}</span>
             Minutes
           </h3>
           <img class="delete-btn" src="images/icons8-cancel-2.svg" alt="delete card button" />
         </div>
       </div>`
   guessCount = 0;
-  console.log(guessCount);
-  right.insertBefore(winnerCardOne, right.childNodes[0]);
 }
 
 function correctGuessTwo() {
   expandRange();
+  var endTime = Date.now();
+  var gameTime = ((endTime - startTime) / 60000).toFixed(2);
   var right = document.querySelector('.right');
   right.innerHTML += `<div class="winner-card">
         <div class="flex jc-center top-line">
@@ -187,15 +193,13 @@ function correctGuessTwo() {
             Guesses
           </h3>
           <h3 class="minutes">
-            <span class="bold minutes-number">1.35</span>
+            <span class="bold minutes-number">${gameTime}</span>
             Minutes
           </h3>
           <img class="delete-btn" src="images/icons8-cancel-2.svg" alt="delete card button" />
         </div>
       </div>`
   guessCount = 0;
-  console.log(guessCount);
-  right.insertBefore(winnerCardTwo, right.childNodes[0]);
 }
 
 // GAME RESETS
@@ -308,9 +312,12 @@ function guessWithinRange(evt) {
     addErrorClass(evt.path[2].querySelector('#guess2'));
     removeErrorClass(evt.path[2].querySelector('#guess1'));
     return false;
+  } else {
+    removeErrorClass(evt.path[2].querySelector('#guess1'));
+    removeErrorClass(evt.path[2].querySelector('#guess2'));
+    return true;
   }
-  removeErrorClass(evt.path[2].querySelector('#guess1'));
-  removeErrorClass(evt.path[2].querySelector('#guess2'));
+  
 }
 
 function rangeCheck() {
@@ -334,7 +341,11 @@ function deleteCard(e) {
 
 function expandRange() {
   maxRange += 10;
-  minRange -= 10;
+  if (minRange <= 10) {
+    minRange = 1;
+  } else {
+    minRange -= 10;
+  }
   document.getElementById('display-min').innerText = minRange;
   document.getElementById('display-max').innerText = maxRange;
 }
