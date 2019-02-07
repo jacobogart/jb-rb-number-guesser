@@ -7,7 +7,7 @@ You can visit the live finished version of this project at ---.
 ## Key Features
 
 * **Responsive** - The content looks good on any screen size
-* **Flexbox** - Uses flexbox to make layout fluid
+* **Flexbox** - Uses flexbox to make the layout fluid
 * **Interactive** - Two Users can interact with the game with multiple input fields
 * **Dynamic** - New content is added or removed from the game depending on the user's actions
 
