@@ -124,7 +124,7 @@ function correctGuessOne() {
   var endTime = Date.now();
   var gameTime = ((endTime - startTime) / 60000).toFixed(2);
   var right = document.querySelector('.right');
-  right.innerHTML += `<div class="winner-card">
+  var cardText = `<div class="winner-card">
         <div class="flex jc-center top-line">
           <h3 class="bold challenger-1">
             ${name1}
@@ -158,6 +158,7 @@ function correctGuessOne() {
           <img class="delete-btn" src="images/icons8-cancel-2.svg" alt="delete card button" />
         </div>
       </div>`;
+  right.insertAdjacentHTML('afterbegin', cardText);
   document.getElementById("card-clear-btn").classList.remove('hidden');
   guessCount = 0;
 }
@@ -167,7 +168,7 @@ function correctGuessTwo() {
   var endTime = Date.now();
   var gameTime = ((endTime - startTime) / 60000).toFixed(2);
   var right = document.querySelector('.right');
-  right.innerHTML += `<div class="winner-card">
+  var cardText = `<div class="winner-card">
         <div class="flex jc-center top-line">
           <h3 class="bold challenger-1">
             ${name1}
@@ -201,6 +202,7 @@ function correctGuessTwo() {
           <img class="delete-btn" src="images/icons8-cancel-2.svg" alt="delete card button" />
         </div>
       </div>`;
+  right.insertAdjacentHTML('afterbegin', cardText);
   document.getElementById("card-clear-btn").classList.remove('hidden');
   guessCount = 0;
 }
