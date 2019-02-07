@@ -296,7 +296,6 @@ function isAlphaNumeric(e){
   var regex = /\w/;
   var char = e.key;
   konamiRegex = /kittens/;
-  console.log(konamiString);
   if (konamiRegex.test(konamiString)) {
     releaseTheKitten();
     konamiString = '';
@@ -387,8 +386,8 @@ typeWriter();
 function releaseTheKitten() {
   kitten = document.getElementById('grumpy-kitten');
 
-  spaceH = screen.height - kitten.height;
-  spaceW = screen.width - kitten.width;
+  spaceW = screen.height - kitten.height;
+  spaceH = screen.width - kitten.width;
 
   setInterval(moveTheKitten, 500);
 }
