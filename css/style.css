@@ -101,8 +101,31 @@ button {
   padding: 10px 20px;
   text-transform: uppercase;
   font-size: 22px;
+  cursor: pointer;
+  box-shadow: 0 2px #999;
 }
 
+button:hover {
+  background-color: #DD1972;
+}
+
+.disabled {
+  background-color: #D0D2D3;
+  cursor: default;
+}
+
+.disabled:hover {
+  background-color: #D0D2D3;
+}
+
+button:focus {
+  outline:0;
+}
+
+button:active {
+  box-shadow: 0 1px #666;
+  transform: translateY(2px);
+}
 
 .error {
   border: 2px solid #DD1972;
@@ -118,14 +141,6 @@ button {
 
 .hidden {
   display: none;
-}
-
-.disabled {
-  background-color: #D0D2D3;
-}
-
-button:focus {
-  outline:0;
 }
 
 
