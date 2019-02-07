@@ -2,7 +2,7 @@
 
 This is the first group project of the front end program at the [Turing School of Software and Design](https://https://turing.io/). The point of the project was to develop an interactive number guessing game with HTML, CSS, and JavaScript. The authors crafted a well structured, semantic HTML webpage and then used CSS to make the page fully responsive on all screen sizes. In addition to the HTML and CSS the authors utilized JavaScript to add, remove, and update elements on the DOM depending on the user's input. The end result is a dynamic number guessing game that is fun to play!
 
-You can visit the live finished version of this project at ---.
+You can visit the live finished version of this project at https://jacobogart.github.io/jb-rb-number-guesser/.
 
 ## Key Features
 
