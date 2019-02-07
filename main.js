@@ -9,7 +9,8 @@ var challengerNameOne = document.querySelectorAll('.challenger-name1');
 var challengerNameTwo = document.querySelectorAll('.challenger-name2');
 var numberFields = document.querySelectorAll('.numeric-only');
 var nameFields = document.querySelectorAll('.name');
-var guessFields = document.querySelectorAll('.guess')
+var guessFields = document.querySelectorAll('.guess');
+var konamiString = '';
 
 // ON LOAD FUNCTIONS
 buttonDisable();
@@ -294,8 +295,15 @@ function isAlphaNumeric(e){
   // The \w regex stands for all alphanumeric characters
   var regex = /\w/;
   var char = e.key;
+  konamiRegex = /kittens/;
+  console.log(konamiString);
+  if (konamiRegex.test(konamiString)) {
+    releaseTheKitten();
+    konamiString = '';
+  }
   if (char === 'Backspace' || char === 'Tab' || char === ' ' || regex.test(char)) {
     removeErrorClass(e.target);
+    konamiString += char;
     return true;
   } else {
     e.preventDefault();
@@ -359,7 +367,35 @@ function expandRange() {
 }
 
 function cardClear() {
-  
+
+}
+
+var i = 0;
+var txt = 'Ultimate Challenger Edition'; /* The text */
+var speed = 100; /* The speed/duration of the effect in milliseconds */
+
+function typeWriter() {
+  if (i < txt.length) {
+    document.querySelector(".decorated span").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+}
+
+typeWriter();
+
+function releaseTheKitten() {
+  kitten = document.getElementById('grumpy-kitten');
+
+  spaceH = screen.height - kitten.height;
+  spaceW = screen.width - kitten.width;
+
+  setInterval(moveTheKitten, 500);
+}
+
+function moveTheKitten() {
+  kitten.style.top = Math.round(Math.random() * spaceW) + "px";
+  kitten.style.left = Math.round(Math.random() * spaceH) + "px";
 }
 
 
