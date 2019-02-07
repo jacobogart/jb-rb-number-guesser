@@ -66,9 +66,6 @@ main {
 .right {
   width: 50%;
   background-color: #dadada;
-  display: flex;
-  flex-direction: column-reverse;
-  justify-content: flex-end;
   overflow: scroll;
 }
 
