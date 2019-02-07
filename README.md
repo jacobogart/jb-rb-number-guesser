@@ -22,13 +22,21 @@ You can visit the live finished version of this project at ---.
 * **Jacob Bogart** - [Jacob's Github](https://github.com/jacobogart)
 * **Ryan Barnett** - [Ryan's Github](http://github.com/RyanDBarnett)
 
-## What The Site Should Look Like
+## How The Website Should Appear On Desktop  
 
-![website comp](images/comp-1.png)
+![desktop comp](images/given-site.jpg)
 
-## Finished Project
+## How The Website Should Appear On Mobile
 
-![ryans website](images/rb-comp-1.png)
+![mobile comp](images/given-mobile.jpg)
+
+## Finished Project On Desktop
+
+![desktop website](images/our-site.png)
+
+## Finished Project On Mobile
+
+![mobile website](images/our-mobile.png)
 
 ## License
 
