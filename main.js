@@ -19,7 +19,6 @@ buttonDisable();
 document.getElementById('submit-btn').addEventListener('click', makeGuess);
 document.getElementById('reset-btn').addEventListener('click', resetGame);
 document.getElementById('clear-btn').addEventListener('click', clearGame);
-document.getElementById('card-clear-btn').addEventListener('click', cardClear);
 document.querySelector('.right').addEventListener('click', deleteCard);
 for (var i = 0; i < numberFields.length; i++) {
   numberFields[i].addEventListener('keydown', isNumberKey);
@@ -160,6 +159,7 @@ function correctGuessOne() {
         </div>
       </div>`;
   right.insertAdjacentHTML('afterbegin', cardText);
+  console.log(document.getElementById("card-clear-btn"));
   document.getElementById("card-clear-btn").classList.remove('hidden');
   guessCount = 0;
 }
@@ -350,7 +350,7 @@ function deleteCard(e) {
     e.target.parentElement.parentElement.remove();
   }
   if (e.target.id === 'card-clear-btn') {
-    document.querySelector('.right').innerHTML = '';
+    document.querySelector('.right').innerHTML = `<button id="card-clear-btn" class="hidden">Clear All</button>`;
   }
 }
 
@@ -363,10 +363,6 @@ function expandRange() {
   }
   document.getElementById('display-min').innerText = minRange;
   document.getElementById('display-max').innerText = maxRange;
-}
-
-function cardClear() {
-
 }
 
 var i = 0;
